@@ -34,19 +34,31 @@
 }
 
 /* ============================================================
-   HERO — Mais dramático
+   HERO — Com foto real + overlay cinematográfico
    ============================================================ */
 #hero {
   background-color: #000;
 }
 
 .hero-bg-placeholder {
+  background-image: url('../img/IMG_3935.jpeg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: brightness(0.35) saturate(0.7);
+}
+
+.hero-bg-placeholder {
+  position: relative;
+}
+
+.hero-bg-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   background:
-    radial-gradient(ellipse at 50% 100%, rgba(234, 88, 12, 0.22) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 50%, rgba(180, 83, 9, 0.10) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(120, 40, 0, 0.15) 0%, transparent 40%),
-    radial-gradient(ellipse at 80% 80%, rgba(120, 40, 0, 0.15) 0%, transparent 40%),
-    linear-gradient(180deg, #050203 0%, #0d0507 50%, #050203 100%);
+    radial-gradient(ellipse at 50% 100%, rgba(234, 88, 12, 0.35) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.7) 100%);
 }
 
 .badge-top {
@@ -434,6 +446,22 @@
 .faq-question:focus-visible,
 .faq-question[aria-expanded="true"] {
   background: rgba(39,39,42,0.8);
+}
+
+/* ============================================================
+   VSL — Coming soon limpo
+   ============================================================ */
+.vsl-coming-soon .vsl-placeholder-text {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.vsl-coming-soon .vsl-placeholder-hint {
+  display: none;
 }
 
 /* ============================================================
