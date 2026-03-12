@@ -26,9 +26,11 @@
   --gray-500:  #71717a;
   --green:     #22c55e;
 
-  --font-head: 'Cinzel', Georgia, serif;
+  --font-display: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+  --font-head:    'Oswald', 'Barlow Condensed', sans-serif;
+  --font-body:    'Merriweather', Georgia, serif;
+  /* legacy alias */
   --font-deco: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
-  --font-body: 'EB Garamond', 'Crimson Text', Georgia, serif;
 
   --container: 1100px;
   --radius:    4px;
@@ -45,8 +47,9 @@ body {
   background-color: var(--dark-2);
   color: var(--gray-300);
   font-family: var(--font-body);
-  font-size: 1.125rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.85;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -61,34 +64,51 @@ ul { list-style: none; }
    ============================================================ */
 .section-title {
   font-family: var(--font-head);
-  font-size: clamp(1.4rem, 4.5vw, 2.4rem);
+  font-size: clamp(1.5rem, 4.5vw, 2.6rem);
   font-weight: 700;
   color: var(--white);
-  letter-spacing: 0.06em;
-  line-height: 1.2;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
   text-transform: uppercase;
   margin-bottom: 2rem;
 }
 
-.section-title.centered { text-align: center; }
+/* Gold accent line below centered titles */
+.section-title.centered {
+  text-align: center;
+}
+
+.section-title.centered::after {
+  content: '';
+  display: block;
+  width: 52px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-light), var(--gold-deep));
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
 
 .section-subtitle {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  font-weight: 300;
   color: var(--gray-400);
   margin-bottom: 3rem;
-  line-height: 1.6;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
 }
 
 .section-subtitle.centered { text-align: center; }
 
 .section-lead {
-  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: 300;
   color: var(--gray-400);
   max-width: 780px;
   margin: 0 auto 3rem;
   text-align: center;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 /* ============================================================
@@ -257,16 +277,17 @@ section {
 .badge-top {
   display: inline-block;
   font-family: var(--font-head);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.25em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   color: var(--gold-light);
-  border: 1px solid var(--gold);
-  padding: 0.4rem 1.1rem;
+  border: 1px solid rgba(245,158,11,0.5);
+  padding: 0.45rem 1.3rem;
   border-radius: 2px;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.8rem;
   text-transform: uppercase;
-  background: rgba(217, 119, 6, 0.08);
+  background: rgba(217, 119, 6, 0.07);
+  backdrop-filter: blur(4px);
 }
 
 .hero-title {
@@ -278,32 +299,36 @@ section {
 
 .title-white {
   font-family: var(--font-deco);
-  font-size: clamp(2.2rem, 8vw, 5rem);
-  font-weight: 700;
+  font-size: clamp(2.4rem, 9vw, 5.5rem);
+  font-weight: 900;
   color: var(--white);
-  letter-spacing: 0.04em;
-  text-shadow: 0 2px 24px rgba(0,0,0,0.8);
-  line-height: 1.1;
+  letter-spacing: 0.03em;
+  text-shadow:
+    0 2px 32px rgba(0,0,0,0.9),
+    0 0 60px rgba(234,88,12,0.15);
+  line-height: 1.05;
 }
 
 .title-gold {
   font-family: var(--font-head);
-  font-size: clamp(1.15rem, 4vw, 2.1rem);
-  font-weight: 700;
+  font-size: clamp(1.1rem, 3.5vw, 1.9rem);
+  font-weight: 600;
   color: var(--gold-light);
-  letter-spacing: 0.12em;
-  text-shadow: 0 0 20px rgba(251,191,36,0.4);
-  line-height: 1.2;
+  letter-spacing: 0.18em;
+  text-shadow: 0 0 24px rgba(251,191,36,0.35);
+  line-height: 1.3;
 }
 
 .hero-subtitle {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  color: var(--gray-300);
-  max-width: 580px;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  font-weight: 300;
+  color: rgba(212, 212, 216, 0.88);
+  max-width: 560px;
   margin: 0 auto 2.4rem;
-  line-height: 1.7;
+  line-height: 1.8;
   text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+  letter-spacing: 0.015em;
 }
 
 .cta-wrapper {
@@ -413,37 +438,49 @@ section {
 }
 
 .pain-card {
-  background: var(--dark-3);
+  background: linear-gradient(135deg, var(--dark-3) 0%, rgba(24,24,27,0.7) 100%);
   border-left: 3px solid var(--gold);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 1.4rem 1.5rem;
+  border-radius: 0 6px 6px 0;
+  padding: 1.5rem 1.6rem;
   display: flex;
   gap: 1.2rem;
   align-items: flex-start;
-  transition: border-color var(--transition), background var(--transition);
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.pain-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(217,119,6,0.04) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .pain-card:hover {
-  background: var(--dark-4);
+  background: linear-gradient(135deg, var(--dark-4) 0%, rgba(39,39,42,0.8) 100%);
   border-left-color: var(--gold-light);
+  transform: translateX(3px);
 }
 
 .pain-number {
   font-family: var(--font-head);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--gold);
-  opacity: 0.55;
+  opacity: 0.45;
   flex-shrink: 0;
   line-height: 1;
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
 }
 
 .pain-card p {
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 1rem;
+  font-weight: 300;
   color: var(--gray-300);
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
 /* ============================================================
@@ -461,12 +498,13 @@ section {
 
 .texto-pesado {
   font-family: var(--font-body);
-  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 300;
   color: var(--gray-300);
-  line-height: 1.85;
+  line-height: 1.95;
   margin-bottom: 1.8rem;
-  padding-left: 1.2rem;
-  border-left: 2px solid rgba(234, 88, 12, 0.3);
+  padding-left: 1.4rem;
+  border-left: 2px solid rgba(234, 88, 12, 0.28);
 }
 
 .texto-urgente {
@@ -665,10 +703,11 @@ section {
 
 .autoridade-texto p {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  font-weight: 300;
   color: var(--gray-300);
-  line-height: 1.8;
-  margin-bottom: 1.2rem;
+  line-height: 1.9;
+  margin-bottom: 1.3rem;
 }
 
 .autoridade-texto p:last-child { margin-bottom: 0; }
@@ -745,27 +784,38 @@ section {
 }
 
 .modulo-card {
-  background: var(--dark-3);
-  border: 1px solid rgba(217,119,6,0.15);
-  border-radius: 6px;
-  padding: 1.6rem;
+  background: linear-gradient(145deg, var(--dark-3) 0%, var(--dark-2) 100%);
+  border: 1px solid rgba(217,119,6,0.14);
+  border-top: 1px solid rgba(217,119,6,0.22);
+  border-radius: 8px;
+  padding: 1.7rem;
   display: flex;
-  gap: 1.4rem;
+  gap: 1.3rem;
   align-items: flex-start;
-  transition: border-color var(--transition), transform var(--transition);
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  position: relative;
+}
+
+.modulo-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245,158,11,0.3), transparent);
 }
 
 .modulo-card:hover {
-  border-color: rgba(217,119,6,0.4);
-  transform: translateX(3px);
+  border-color: rgba(217,119,6,0.38);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
 .modulo-num {
-  font-family: var(--font-deco);
-  font-size: 1.8rem;
-  font-weight: 900;
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  font-weight: 700;
   color: var(--gold);
-  opacity: 0.45;
+  opacity: 0.4;
   flex-shrink: 0;
   line-height: 1;
   min-width: 2.5rem;
@@ -773,19 +823,21 @@ section {
 
 .modulo-content h3 {
   font-family: var(--font-head);
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 600;
   color: var(--white);
-  letter-spacing: 0.03em;
-  margin-bottom: 0.55rem;
-  line-height: 1.35;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+  text-transform: uppercase;
 }
 
 .modulo-content p {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  font-weight: 300;
   color: var(--gray-400);
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
 /* ============================================================
@@ -811,20 +863,21 @@ section {
 
 .objecao-pergunta {
   font-family: var(--font-head);
-  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  font-size: clamp(0.88rem, 2vw, 1rem);
   font-weight: 600;
   color: var(--gold-light);
-  margin-bottom: 0.85rem;
-  line-height: 1.35;
-  font-style: normal;
-  letter-spacing: 0.02em;
+  margin-bottom: 0.9rem;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .objecao-resposta {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.98rem;
+  font-weight: 300;
   color: var(--gray-300);
-  line-height: 1.75;
+  line-height: 1.85;
 }
 
 /* ============================================================
@@ -832,24 +885,39 @@ section {
    ============================================================ */
 .preco-ancoragem {
   font-family: var(--font-body);
-  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+  font-size: clamp(0.98rem, 2.2vw, 1.1rem);
+  font-weight: 300;
   color: var(--gray-400);
-  max-width: 700px;
+  max-width: 680px;
   margin: 0 auto 3rem;
   text-align: center;
-  line-height: 1.8;
+  line-height: 1.9;
   font-style: italic;
 }
 
 .preco-box {
-  background: var(--dark-3);
-  border: 2px solid var(--gold);
-  border-radius: 8px;
-  padding: 2.5rem 2rem;
+  background: linear-gradient(160deg, #1c1a14 0%, var(--dark-3) 40%, #0f0d0a 100%);
+  border: 1px solid rgba(217,119,6,0.5);
+  border-top: 1px solid rgba(245,158,11,0.6);
+  border-radius: 10px;
+  padding: 2.8rem 2.2rem;
   max-width: 520px;
   margin: 0 auto;
   text-align: center;
-  box-shadow: 0 0 40px rgba(217,119,6,0.2), 0 0 80px rgba(217,119,6,0.08);
+  box-shadow:
+    0 0 0 1px rgba(217,119,6,0.08),
+    0 0 50px rgba(217,119,6,0.18),
+    0 0 100px rgba(217,119,6,0.06),
+    inset 0 1px 0 rgba(245,158,11,0.1);
+  position: relative;
+}
+
+.preco-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(251,191,36,0.6), transparent);
 }
 
 .preco-label {
@@ -960,19 +1028,21 @@ section {
 
 .urgencia-texto {
   font-family: var(--font-body);
-  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 300;
   color: var(--gray-300);
-  line-height: 1.85;
+  line-height: 1.95;
   margin-bottom: 1.5rem;
 }
 
 .urgencia-subtexto {
   font-family: var(--font-head);
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-size: clamp(1.15rem, 3vw, 1.6rem);
   font-weight: 700;
   color: var(--gold-light);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   margin-bottom: 2.5rem;
+  text-transform: uppercase;
 }
 
 /* ============================================================
@@ -1004,13 +1074,14 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.3rem 1.5rem;
+  padding: 1.3rem 1.6rem;
   text-align: left;
   color: var(--white);
   font-family: var(--font-head);
-  font-size: clamp(0.88rem, 2vw, 0.98rem);
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   transition: background var(--transition), color var(--transition);
   -webkit-tap-highlight-color: transparent;
 }
@@ -1063,9 +1134,10 @@ section {
 
 .faq-answer p {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.98rem;
+  font-weight: 300;
   color: var(--gray-400);
-  line-height: 1.75;
+  line-height: 1.85;
 }
 
 /* ============================================================
