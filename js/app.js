@@ -221,3 +221,72 @@
     }
   });
 })();
+
+
+// ============================================================
+// COUNTDOWN TIMER
+// ============================================================
+(function() {
+  const key = 'vv_deadline';
+  let deadline = localStorage.getItem(key);
+  if (!deadline) {
+    deadline = Date.now() + 24 * 60 * 60 * 1000; // 24h
+    localStorage.setItem(key, deadline);
+  }
+  function updateTimer() {
+    const diff = parseInt(deadline) - Date.now();
+    if (diff <= 0) { document.getElementById('countdown-timer').textContent = '00:00:00'; return; }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('countdown-timer').textContent =
+      String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  }
+  const el = document.getElementById('countdown-timer');
+  if (el) { updateTimer(); setInterval(updateTimer, 1000); }
+})();
+
+// ============================================================
+// STICKY BOTTOM CTA — aparece após scroll de 600px
+// ============================================================
+(function() {
+  const bar = document.getElementById('sticky-cta');
+  if (!bar) return;
+  let shown = false;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 600 && !shown) {
+      bar.classList.add('visible');
+      shown = true;
+    }
+  }, { passive: true });
+})();
+
+// ============================================================
+// EXIT INTENT POPUP
+// ============================================================
+(function() {
+  const popup = document.getElementById('exit-popup');
+  const overlay = document.getElementById('exit-popup-overlay');
+  const closeBtn = document.getElementById('exit-popup-close');
+  if (!popup) return;
+  let triggered = false;
+  let shown = false;
+  // Espera 10s antes de ativar
+  setTimeout(function() { triggered = true; }, 10000);
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 5 && triggered && !shown) {
+      shown = true;
+      popup.classList.remove('exit-popup-hidden');
+      popup.classList.add('active');
+    }
+  });
+  function closePopup() {
+    popup.classList.remove('active');
+    popup.classList.add('exit-popup-hidden');
+  }
+  if (closeBtn) closeBtn.addEventListener('click', closePopup);
+  if (overlay) overlay.addEventListener('click', closePopup);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePopup();
+  });
+})();

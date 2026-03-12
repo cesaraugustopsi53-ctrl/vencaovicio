@@ -35,6 +35,13 @@
 </head>
 <body>
 
+  <div id="urgency-bar">
+    <div class="urgency-bar-inner">
+      <span class="urgency-bar-text">⚡ Oferta especial — apenas <strong>R$37</strong> — expira em <span id="countdown-timer">23:47:12</span></span>
+      <a href="https://pay.kiwify.com.br/yKUfjLY" class="urgency-bar-btn" onclick="fbq('track', 'InitiateCheckout')">GARANTIR AGORA →</a>
+    </div>
+  </div>
+
   <!-- ============================================================
        SEÇÃO 1 — HERO
   ============================================================ -->
@@ -185,6 +192,21 @@
     </div>
   </section>
 
+  <!-- VIRADA — Imagem guerreiro vencendo -->
+  <section id="virada" class="section-virada">
+    <div class="virada-bg" aria-hidden="true"></div>
+    <div class="container virada-content">
+      <p class="virada-texto reveal">
+        Todo homem que venceu o vício passou por um momento de decisão.<br>
+        <strong>Este pode ser o seu.</strong>
+      </p>
+      <a href="https://pay.kiwify.com.br/yKUfjLY" class="btn-primary btn-large buy-btn reveal" onclick="fbq('track', 'InitiateCheckout')">
+        QUERO VENCER AGORA — R$37
+      </a>
+      <p class="microcopy reveal">Acesso imediato. Garantia 7 dias. Totalmente anônimo.</p>
+    </div>
+  </section>
+
   <!-- ============================================================
        SEÇÃO 5 — DEPOIMENTOS
   ============================================================ -->
@@ -227,6 +249,28 @@
             class="depo-screenshot"
             loading="lazy"
           >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL — Contador -->
+  <section id="prova-social" class="section-dark prova-social-section">
+    <div class="container">
+      <div class="prova-social-grid">
+        <div class="prova-stat reveal">
+          <div class="prova-num">+847</div>
+          <div class="prova-label">homens já começaram a jornada</div>
+        </div>
+        <div class="prova-divider"></div>
+        <div class="prova-stat reveal">
+          <div class="prova-num">7 dias</div>
+          <div class="prova-label">garantia total sem perguntas</div>
+        </div>
+        <div class="prova-divider"></div>
+        <div class="prova-stat reveal">
+          <div class="prova-num">4h+</div>
+          <div class="prova-label">de conteúdo clínico real</div>
         </div>
       </div>
     </div>
@@ -640,6 +684,28 @@
       </nav>
     </div>
   </footer>
+
+  <div id="sticky-cta" class="sticky-cta-hidden">
+    <div class="sticky-cta-inner">
+      <div class="sticky-cta-text">
+        <strong>Vença o Vício em Pornografia</strong>
+        <span>R$37 · Acesso imediato · Garantia 7 dias</span>
+      </div>
+      <a href="https://pay.kiwify.com.br/yKUfjLY" class="btn-primary sticky-cta-btn buy-btn" onclick="fbq('track', 'InitiateCheckout')">GARANTIR AGORA</a>
+    </div>
+  </div>
+
+  <div id="exit-popup" class="exit-popup-hidden" role="dialog" aria-modal="true">
+    <div class="exit-popup-overlay" id="exit-popup-overlay"></div>
+    <div class="exit-popup-box">
+      <button class="exit-popup-close" id="exit-popup-close" aria-label="Fechar">✕</button>
+      <div class="exit-popup-icon">⚔️</div>
+      <h2 class="exit-popup-title">Espera — antes de ir embora</h2>
+      <p class="exit-popup-text">Você chegou até aqui por um motivo. O vício não para enquanto você decide. <strong>Por R$37 você tem acesso imediato ao método completo.</strong></p>
+      <a href="https://pay.kiwify.com.br/yKUfjLY" class="btn-primary exit-popup-btn buy-btn" onclick="fbq('track', 'InitiateCheckout')">COMEÇAR AGORA POR R$37</a>
+      <p class="exit-popup-microcopy">Garantia de 7 dias. Totalmente anônimo.</p>
+    </div>
+  </div>
 
   <script src="js/app.js"></script>
 </body>
