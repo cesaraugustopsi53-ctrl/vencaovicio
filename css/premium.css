@@ -43,9 +43,9 @@
 .hero-bg-placeholder {
   background-image: url('../img/guerreiro-dragao-landscape.png');
   background-size: cover;
-  background-position: center top;
+  background-position: center 30%;
   background-repeat: no-repeat;
-  filter: brightness(0.4) saturate(0.9);
+  filter: brightness(0.58) saturate(1.1);
 }
 
 .hero-bg-placeholder {
@@ -70,12 +70,8 @@
 }
 
 .title-white {
-  background: linear-gradient(180deg, #ffffff 0%, #e8e8e8 60%, #c0c0c0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: none;
-  filter: drop-shadow(0 0 30px rgba(255,255,255,0.08));
+  color: rgba(212, 212, 216, 0.75);
+  /* sem gradient — texto menor não precisa */
 }
 
 .title-gold {
@@ -84,8 +80,8 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: none;
-  filter: drop-shadow(0 0 20px rgba(251,191,36,0.4));
-  letter-spacing: 0.22em;
+  filter: drop-shadow(0 0 30px rgba(251,191,36,0.5));
+  letter-spacing: 0.04em;
 }
 
 .btn-primary {
