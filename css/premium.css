@@ -563,8 +563,13 @@ section {
 
 .urgency-bar-btn:hover { opacity: 0.85; }
 
-/* Compensate body for fixed urgency bar */
+/* Compensate body for fixed urgency bar — desktop only */
 body { padding-top: 38px; }
+
+@media (max-width: 640px) {
+  #urgency-bar { display: none; }
+  body { padding-top: 0; }
+}
 
 /* ============================================================
    STICKY BOTTOM CTA
