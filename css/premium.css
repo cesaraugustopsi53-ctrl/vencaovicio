@@ -40,25 +40,15 @@
   background-color: #000;
 }
 
-.hero-bg-placeholder {
-  background-image: url('../img/guerreiro-dragao-landscape.png');
-  background-size: cover;
-  background-position: center 30%;
-  background-repeat: no-repeat;
-  filter: brightness(0.58) saturate(1.1);
-}
-
-.hero-bg-placeholder {
-  position: relative;
-}
-
-.hero-bg-placeholder::after {
-  content: '';
+/* Hero background — fundo escuro com gradiente sutil */
+.hero-bg-dark {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 50% 100%, rgba(234, 88, 12, 0.35) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.7) 100%);
+    radial-gradient(ellipse at 70% 60%, rgba(217,119,6,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(234,88,12,0.06) 0%, transparent 45%),
+    linear-gradient(160deg, #08060a 0%, #0d0a0f 40%, #090608 100%);
+  z-index: 0;
 }
 
 .badge-top {
