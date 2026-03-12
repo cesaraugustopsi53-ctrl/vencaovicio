@@ -874,6 +874,16 @@ section {
 /* ============================================================
    SECTION 8 — MÓDULOS
    ============================================================ */
+.modulo-icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  flex-shrink: 0;
+  color: var(--gold-light);
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.1rem;
+}
+
 .modulos-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -935,6 +945,71 @@ section {
   font-weight: 300;
   color: var(--gray-400);
   line-height: 1.75;
+}
+
+/* ============================================================
+   SECTION 9b — O QUE VOCÊ RECEBE
+   ============================================================ */
+.recebe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.recebe-item {
+  text-align: center;
+  padding: 1.75rem 1rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(217,119,6,0.12);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.recebe-item:hover {
+  border-color: rgba(217,119,6,0.35);
+  transform: translateY(-3px);
+}
+
+.recebe-icon {
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  background: rgba(217,119,6,0.08);
+  border-radius: 50%;
+  border: 1px solid rgba(217,119,6,0.22);
+  flex-shrink: 0;
+}
+
+.recebe-titulo {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.recebe-desc {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--gray-400);
+  line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+  .recebe-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* ============================================================

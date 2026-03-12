@@ -819,11 +819,58 @@ body { padding-top: 38px; }
   margin-top: 0.5rem;
 }
 
+/* Modulo icon premium */
+.modulo-icon {
+  color: var(--gold-light);
+  filter: drop-shadow(0 0 8px rgba(245,158,11,0.3));
+}
+
+/* Recebe items premium hover */
+.recebe-item {
+  background: linear-gradient(145deg, rgba(39,39,42,0.4), rgba(24,24,27,0.3));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(217,119,6,0.2);
+}
+
+/* Sticky CTA pulse */
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(217,119,6,0.45), 0 4px 15px rgba(0,0,0,0.4); }
+  50%       { box-shadow: 0 0 40px rgba(251,191,36,0.75), 0 4px 20px rgba(0,0,0,0.5); }
+}
+
+.sticky-cta-btn {
+  animation: cta-pulse 2.5s ease-in-out infinite;
+}
+
 /* Mobile adjustments */
 @media (max-width: 640px) {
   .urgency-bar-inner { gap: 0.75rem; }
-  .sticky-cta-inner { flex-direction: column; gap: 0.75rem; text-align: center; }
   .prova-divider { display: none; }
   .prova-social-grid { gap: 1.5rem; }
   .exit-popup-box { padding: 2rem 1.25rem; }
+
+  /* Sticky CTA — full width, maior impacto */
+  #sticky-cta {
+    padding: 0.85rem 1rem 1.1rem;
+  }
+  .sticky-cta-inner {
+    flex-direction: column;
+    gap: 0.6rem;
+    text-align: center;
+  }
+  .sticky-cta-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+    display: block;
+    text-align: center;
+    letter-spacing: 0.1em;
+  }
+  .sticky-cta-text strong {
+    font-size: 0.82rem;
+  }
+  .sticky-cta-text span {
+    font-size: 0.7rem;
+  }
 }

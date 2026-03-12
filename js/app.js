@@ -247,6 +247,44 @@
 })();
 
 // ============================================================
+// ANIMATED COUNTER — data-counter attribute
+// ============================================================
+(function() {
+  const counters = document.querySelectorAll('[data-counter]');
+  if (!counters.length) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.getAttribute('data-counter'), 10);
+      const duration = 1800;
+      const start = performance.now();
+
+      function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = '+' + Math.floor(eased * target);
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          el.textContent = '+' + target;
+        }
+      }
+
+      requestAnimationFrame(update);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+
+  counters.forEach(function(el) { observer.observe(el); });
+})();
+
+
+// ============================================================
 // STICKY BOTTOM CTA — aparece após scroll de 600px
 // ============================================================
 (function() {
