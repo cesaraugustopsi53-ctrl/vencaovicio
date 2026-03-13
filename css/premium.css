@@ -1,98 +1,164 @@
 /* ============================================================
-   PREMIUM — vencaovicio (novo design system dourado/escuro)
-   Sobrescreve e estende styles.css
+   PREMIUM — refinamentos adicionais
+   Complementa styles.css sem conflito
    ============================================================ */
 
-/* Sem regras conflitantes — tudo migrado para styles.css */
-/* Este arquivo mantém apenas refinamentos adicionais */
+/* Scrollbar sutil */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: rgba(245,158,11,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(245,158,11,0.5); }
 
-/* ============================================================
-   TIPOGRAFIA — Cormorant nos títulos de seção
-   ============================================================ */
-.section-title {
-  font-family: 'Cormorant', Georgia, serif;
+/* Seleção de texto */
+::selection {
+  background: rgba(245,158,11,0.25);
+  color: var(--text-primary);
 }
 
-/* ============================================================
-   HERO — refinamentos
-   ============================================================ */
-.badge-top {
-  /* já definido em styles.css */
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
-/* ============================================================
-   PAIN CARDS — borda esquerda dourada + separadores
-   ============================================================ */
-.pain-card + .pain-card {
-  border-top: 1px solid rgba(201, 168, 76, 0.08);
-}
-
-/* ============================================================
-   VSL — borda sutil
-   ============================================================ */
-.vsl-placeholder {
-  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-}
-
-/* ============================================================
-   DEPOIMENTOS — gap sutil entre cards
-   ============================================================ */
-.testimonials-screenshots {
+/* Botão CTA — pulse sutil no hover */
+.btn-primary.buy-btn {
+  position: relative;
   overflow: hidden;
 }
 
-/* ============================================================
-   SEÇÃO MÓDULOS — numeração romana sutil
-   ============================================================ */
-.modulo-card:nth-child(1) .modulo-icon::before { content: none; }
+.btn-primary.buy-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-/* ============================================================
-   PREÇO — destaque extra no valor
-   ============================================================ */
+.btn-primary.buy-btn:hover::after {
+  opacity: 1;
+}
+
+/* Pain cards — borda esquerda âmbar sutil */
+.pain-card {
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.pain-card:hover {
+  border-left-color: rgba(245,158,11,0.5);
+}
+
+/* Módulos — destaque leve no ícone hover */
+.modulo-card:hover .modulo-icon {
+  background: rgba(245,158,11,0.18);
+  border-color: rgba(245,158,11,0.35);
+}
+
+/* FAQ — linha separadora suave */
+.faq-question[aria-expanded="true"] {
+  color: var(--accent);
+}
+
+/* Objeção — borda top âmbar no hover */
+.objecao-card {
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.objecao-card:hover {
+  border-color: rgba(245,158,11,0.45);
+  transform: translateY(-2px);
+}
+
+/* Guerra cards — efeito hover */
+.guerra-card {
+  transition: transform 0.3s ease;
+}
+
+.guerra-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Recebe item — sombra sutil hover */
+.recebe-item {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recebe-item:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Depoimento card hover */
+.testimonial-screenshot-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-screenshot-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* Urgency bar — texto forte */
+.urgency-bar-text strong {
+  font-weight: 800;
+}
+
+/* Preco valor destaque */
 .preco-valor {
-  letter-spacing: 0;
+  text-shadow: 0 0 40px rgba(245,158,11,0.15);
 }
 
-/* ============================================================
-   GARANTIA — ícone em dourado
-   ============================================================ */
-.garantia-icon svg {
-  stroke: var(--green, #22c55e);
+/* Modulo card sombra sutil */
+.modulo-card {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
 }
 
-/* ============================================================
-   OBJEÇÃO — pergunta em Cormorant
-   ============================================================ */
-.objecao-pergunta {
-  font-family: 'Cormorant', Georgia, serif;
+/* Garantia destaque verde */
+.garantia-content {
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(34,197,94,0.04) 100%);
 }
 
-/* ============================================================
-   URGÊNCIA — texto principal em Cormorant
-   ============================================================ */
-.urgencia-texto {
-  font-family: 'Cormorant', Georgia, serif;
+/* Hero badge pill animação sutil */
+.hero-badge-pill {
+  animation: pulse-border 3s ease-in-out infinite;
 }
 
-/* ============================================================
-   VIRADA — texto em Cormorant
-   ============================================================ */
-.virada-texto {
-  font-family: 'Cormorant', Georgia, serif;
+@keyframes pulse-border {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
+  50% { box-shadow: 0 0 0 4px rgba(245,158,11,0.12); }
 }
 
-/* ============================================================
-   FOOTER — refinamento
-   ============================================================ */
-#footer {
+/* Section title underline âmbar */
+.section-title-underline {
+  display: inline-block;
   position: relative;
 }
 
-/* ============================================================
-   MOBILE — ajustes finais
-   ============================================================ */
+.section-title-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Countdown timer bold */
+#countdown-timer {
+  font-weight: 800;
+  color: #fff;
+}
+
+/* Mobile: padding reduzido em cards */
 @media (max-width: 640px) {
-  .testimonials-screenshots {
-    grid-template-columns: 1fr;
-  }
+  .pain-card { padding: 28px 20px; }
+  .modulo-card { padding: 24px 20px; }
+  .objecao-card { padding: 28px 20px; }
+  .para-quem-col { padding: 32px 24px; }
+  .recebe-item { padding: 24px 16px; }
+  .guerra-card { padding: 28px 24px; }
 }
