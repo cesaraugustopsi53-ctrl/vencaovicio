@@ -161,9 +161,8 @@ section {
 #urgency-bar {
   background: var(--btn-gradient);
   padding: 10px 16px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  position: relative;
+  z-index: 1;
 }
 
 .urgency-bar-inner {
