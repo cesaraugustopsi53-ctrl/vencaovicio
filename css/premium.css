@@ -147,10 +147,46 @@
   border-radius: 2px;
 }
 
-/* Countdown timer bold */
-#countdown-timer {
-  font-weight: 800;
-  color: #fff;
+/* Mecanismo section */
+.mecanismo-block {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+}
+.mecanismo-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--text-primary);
+  margin-bottom: 28px;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+}
+.mecanismo-texto {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.mecanismo-destaque {
+  font-size: 1.15rem;
+  color: var(--accent);
+  margin-top: 8px;
+}
+
+/* P.S. section */
+.ps-block {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0;
+  border-top: 1px solid rgba(245,158,11,0.15);
+}
+.ps-texto {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-style: italic;
 }
 
 /* Mobile: padding reduzido em cards */
