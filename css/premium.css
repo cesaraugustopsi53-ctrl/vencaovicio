@@ -1,883 +1,98 @@
 /* ============================================================
-   PREMIUM UPGRADE — vencaovicio
-   Adicionar APÓS styles.css no <head>
+   PREMIUM — vencaovicio (novo design system dourado/escuro)
+   Sobrescreve e estende styles.css
    ============================================================ */
 
-/* ============================================================
-   VARIÁVEIS EXTRAS
-   ============================================================ */
-:root {
-  --glass-bg:    rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.07);
-  --gold-gradient: linear-gradient(135deg, #b45309 0%, #d97706 40%, #f59e0b 70%, #fbbf24 100%);
-  --glow-gold:   0 0 20px rgba(217,119,6,0.4), 0 0 60px rgba(217,119,6,0.15);
-  --glow-orange: 0 0 20px rgba(234,88,12,0.4), 0 0 60px rgba(234,88,12,0.15);
-}
+/* Sem regras conflitantes — tudo migrado para styles.css */
+/* Este arquivo mantém apenas refinamentos adicionais */
 
 /* ============================================================
-   TIPOGRAFIA PREMIUM — Títulos com gradiente
+   TIPOGRAFIA — Cormorant nos títulos de seção
    ============================================================ */
 .section-title {
-  background: linear-gradient(135deg, #ffffff 0%, #f4f4f5 50%, #d4d4d8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 0.1em;
-}
-
-.section-title.centered::after {
-  width: 80px;
-  height: 3px;
-  background: var(--gold-gradient);
-  border-radius: 0;
-  box-shadow: 0 0 12px rgba(217,119,6,0.5);
+  font-family: 'Cormorant', Georgia, serif;
 }
 
 /* ============================================================
-   HERO — Com foto real + overlay cinematográfico
+   HERO — refinamentos
    ============================================================ */
-#hero {
-  background-color: #000;
-}
-
-/* Hero background — fundo escuro com gradiente sutil */
-.hero-bg-dark {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 70% 60%, rgba(217,119,6,0.07) 0%, transparent 55%),
-    radial-gradient(ellipse at 20% 80%, rgba(234,88,12,0.06) 0%, transparent 45%),
-    linear-gradient(160deg, #08060a 0%, #0d0a0f 40%, #090608 100%);
-  z-index: 0;
-}
-
 .badge-top {
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  letter-spacing: 0.28em;
-  font-size: 0.68rem;
-  opacity: 0.75;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.badge-top::before,
-.badge-top::after {
-  content: '';
-  display: block;
-  width: 22px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.7;
-  flex-shrink: 0;
-}
-
-.title-white {
-  color: rgba(212, 212, 216, 0.75);
-  /* sem gradient — texto menor não precisa */
-}
-
-.title-gold {
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: none;
-  filter: drop-shadow(0 0 30px rgba(251,191,36,0.5));
-  letter-spacing: 0.04em;
-}
-
-.btn-primary {
-  background: var(--gold-gradient);
-  box-shadow: 0 0 30px rgba(217,119,6,0.5), 0 4px 15px rgba(0,0,0,0.4);
-  letter-spacing: 0.12em;
-  font-size: 0.95rem;
-}
-
-.btn-primary:hover,
-.btn-primary:focus-visible {
-  box-shadow: 0 0 50px rgba(251,191,36,0.7), 0 6px 20px rgba(0,0,0,0.5);
-  transform: translateY(-3px) scale(1.02);
-}
-
-.btn-large {
-  letter-spacing: 0.14em;
+  /* já definido em styles.css */
 }
 
 /* ============================================================
-   PAIN CARDS — Glassmorphism premium
+   PAIN CARDS — borda esquerda dourada + separadores
    ============================================================ */
-.pain-card {
-  background: linear-gradient(135deg,
-    rgba(39, 39, 42, 0.6) 0%,
-    rgba(24, 24, 27, 0.4) 100%
-  );
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-left: 2px solid var(--gold);
-  border-radius: 2px 8px 8px 2px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04);
-  position: relative;
+.pain-card + .pain-card {
+  border-top: 1px solid rgba(201, 168, 76, 0.08);
+}
+
+/* ============================================================
+   VSL — borda sutil
+   ============================================================ */
+.vsl-placeholder {
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+
+/* ============================================================
+   DEPOIMENTOS — gap sutil entre cards
+   ============================================================ */
+.testimonials-screenshots {
   overflow: hidden;
 }
 
-.pain-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg,
-    rgba(217,119,6,0.06) 0%,
-    transparent 60%
-  );
-  pointer-events: none;
-}
+/* ============================================================
+   SEÇÃO MÓDULOS — numeração romana sutil
+   ============================================================ */
+.modulo-card:nth-child(1) .modulo-icon::before { content: none; }
 
-.pain-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg,
-    rgba(217,119,6,0.5) 0%,
-    rgba(245,158,11,0.2) 50%,
-    transparent 100%
-  );
-}
-
-.pain-card:hover {
-  background: linear-gradient(135deg,
-    rgba(39, 39, 42, 0.8) 0%,
-    rgba(24, 24, 27, 0.6) 100%
-  );
-  border-left-color: var(--gold-light);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(217,119,6,0.1);
-  transform: translateX(4px);
-}
-
-.pain-number {
-  font-family: var(--font-deco);
-  font-size: 2rem;
-  font-weight: 900;
-  opacity: 1;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: opacity(0.5);
-  min-width: 2.8rem;
+/* ============================================================
+   PREÇO — destaque extra no valor
+   ============================================================ */
+.preco-valor {
+  letter-spacing: 0;
 }
 
 /* ============================================================
-   CONSEQUÊNCIAS — Mais dramático
+   GARANTIA — ícone em dourado
    ============================================================ */
-.section-consequencias {
-  position: relative;
-  background: linear-gradient(180deg,
-    var(--dark-2) 0%,
-    rgba(10, 4, 2, 0.98) 50%,
-    var(--dark-2) 100%
-  );
-}
-
-.section-consequencias::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(234,88,12,0.4), transparent);
-}
-
-.section-consequencias::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(234,88,12,0.4), transparent);
-}
-
-.texto-pesado {
-  border-left: 2px solid rgba(234, 88, 12, 0.4);
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.texto-pesado::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -2px;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, var(--orange), transparent);
-}
-
-.texto-urgente {
-  background: linear-gradient(135deg,
-    rgba(234,88,12,0.08) 0%,
-    rgba(180,83,9,0.05) 100%
-  );
-  border: 1px solid rgba(234,88,12,0.4);
-  border-top: 2px solid rgba(234,88,12,0.7);
-  box-shadow: 0 0 30px rgba(234,88,12,0.1), inset 0 1px 0 rgba(255,255,255,0.03);
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  letter-spacing: 0.06em;
+.garantia-icon svg {
+  stroke: var(--green, #22c55e);
 }
 
 /* ============================================================
-   DEPOIMENTOS — Frames premium
+   OBJEÇÃO — pergunta em Cormorant
    ============================================================ */
-.testimonial-screenshot-card {
-  border: 1px solid rgba(217,119,6,0.25);
-  border-top: 2px solid rgba(245,158,11,0.5);
-  border-radius: 10px;
-  box-shadow:
-    0 8px 32px rgba(0,0,0,0.5),
-    0 0 0 1px rgba(217,119,6,0.08),
-    inset 0 1px 0 rgba(255,255,255,0.04);
-  background: var(--dark-3);
-  position: relative;
-  overflow: hidden;
-}
-
-.testimonial-screenshot-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--gold-gradient);
-  z-index: 1;
-}
-
-.testimonial-screenshot-card:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    0 16px 48px rgba(0,0,0,0.6),
-    0 0 30px rgba(217,119,6,0.2);
-  border-color: rgba(245,158,11,0.45);
-}
-
-/* ============================================================
-   AUTORIDADE — Foto premium
-   ============================================================ */
-.cesar-photo-wrapper {
-  border: 2px solid transparent;
-  background:
-    linear-gradient(var(--dark-2), var(--dark-2)) padding-box,
-    var(--gold-gradient) border-box;
-  box-shadow:
-    0 0 0 6px rgba(217,119,6,0.1),
-    0 0 60px rgba(217,119,6,0.25),
-    0 0 120px rgba(217,119,6,0.1);
-  width: 280px;
-  height: 280px;
-}
-
-.autoridade-badge {
-  background: rgba(217,119,6,0.08);
-  border: 1px solid rgba(217,119,6,0.5);
-  box-shadow: 0 0 12px rgba(217,119,6,0.15);
-  color: var(--gold-light);
-  letter-spacing: 0.18em;
-}
-
-/* ============================================================
-   MÓDULOS — Cards premium
-   ============================================================ */
-.modulo-card {
-  background: linear-gradient(145deg,
-    rgba(39,39,42,0.5) 0%,
-    rgba(24,24,27,0.3) 100%
-  );
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
-  border-top: 1px solid rgba(217,119,6,0.3);
-  box-shadow:
-    0 4px 24px rgba(0,0,0,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.04);
-  position: relative;
-}
-
-.modulo-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(245,158,11,0.5) 50%,
-    transparent 100%
-  );
-}
-
-.modulo-card:hover {
-  border-color: rgba(217,119,6,0.3);
-  box-shadow:
-    0 12px 40px rgba(0,0,0,0.4),
-    0 0 30px rgba(217,119,6,0.12);
-  transform: translateY(-4px);
-}
-
-.modulo-num {
-  font-family: var(--font-deco);
-  font-size: 2.2rem;
-  font-weight: 900;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: opacity(0.55);
-  min-width: 3rem;
-  opacity: 1;
-}
-
-.modulo-content h3 {
-  font-size: 1rem;
-  letter-spacing: 0.06em;
-  background: linear-gradient(135deg, #ffffff, #d4d4d8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ============================================================
-   OBJEÇÕES — Cards premium
-   ============================================================ */
-.objecao-card {
-  background: linear-gradient(145deg,
-    rgba(39,39,42,0.5) 0%,
-    rgba(24,24,27,0.3) 100%
-  );
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
-  border-left: 2px solid rgba(217,119,6,0.4);
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-  position: relative;
-}
-
-.objecao-card:hover {
-  border-left-color: var(--gold-light);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.35), 0 0 20px rgba(217,119,6,0.08);
-}
-
 .objecao-pergunta {
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  font-family: 'Cormorant', Georgia, serif;
 }
 
 /* ============================================================
-   PREÇO — Box premium com borda animada
+   URGÊNCIA — texto principal em Cormorant
    ============================================================ */
-@keyframes borderGlow {
-  0%, 100% { box-shadow: 0 0 0 1px rgba(217,119,6,0.08), 0 0 50px rgba(217,119,6,0.20), 0 0 100px rgba(217,119,6,0.08), inset 0 1px 0 rgba(245,158,11,0.1); }
-  50%       { box-shadow: 0 0 0 1px rgba(217,119,6,0.15), 0 0 70px rgba(217,119,6,0.30), 0 0 140px rgba(217,119,6,0.12), inset 0 1px 0 rgba(245,158,11,0.15); }
-}
-
-.preco-box {
-  background: linear-gradient(160deg,
-    rgba(28, 22, 10, 0.95) 0%,
-    rgba(24, 24, 27, 0.9) 40%,
-    rgba(15, 10, 5, 0.98) 100%
-  );
-  border: 1px solid transparent;
-  background-clip: padding-box;
-  position: relative;
-  animation: borderGlow 3s ease-in-out infinite;
-}
-
-.preco-box::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 11px;
-  background: var(--gold-gradient);
-  z-index: -1;
-  opacity: 0.5;
-}
-
-.preco-box::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 10%; right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(251,191,36,0.8), transparent);
-}
-
-.preco-valor span {
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 20px rgba(251,191,36,0.4));
+.urgencia-texto {
+  font-family: 'Cormorant', Georgia, serif;
 }
 
 /* ============================================================
-   GARANTIA — Premium
+   VIRADA — texto em Cormorant
    ============================================================ */
-.garantia-content {
-  background: linear-gradient(145deg,
-    rgba(34,197,94,0.05) 0%,
-    rgba(24,24,27,0.4) 100%
-  );
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(34,197,94,0.25);
-  border-top: 2px solid rgba(34,197,94,0.5);
-  box-shadow: 0 0 40px rgba(34,197,94,0.08), inset 0 1px 0 rgba(255,255,255,0.04);
-}
-
-/* ============================================================
-   FAQ — Premium
-   ============================================================ */
-.faq-list {
-  border: 1px solid rgba(217,119,6,0.2);
-  border-top: 2px solid rgba(217,119,6,0.4);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}
-
-.faq-question {
-  background: rgba(24,24,27,0.6);
-  backdrop-filter: blur(4px);
-}
-
-.faq-question:hover,
-.faq-question:focus-visible,
-.faq-question[aria-expanded="true"] {
-  background: rgba(39,39,42,0.8);
-}
-
-/* ============================================================
-   VSL — Coming soon limpo
-   ============================================================ */
-.vsl-coming-soon .vsl-placeholder-text {
-  font-family: var(--font-head);
-  font-size: 1rem;
-  letter-spacing: 0.2em;
-  color: var(--gold-light);
-  text-transform: uppercase;
-  margin-top: 1rem;
-}
-
-.vsl-coming-soon .vsl-placeholder-hint {
-  display: none;
-}
-
-/* ============================================================
-   SEPARADORES DE SEÇÃO
-   ============================================================ */
-section {
-  position: relative;
-}
-
-#dor::before,
-#modulos::before,
-#preco::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 10%; right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(217,119,6,0.3), transparent);
-}
-
-/* ============================================================
-   SCROLL REVEAL — Mais suave
-   ============================================================ */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ============================================================
-   MOBILE — Ajustes premium
-   ============================================================ */
-@media (max-width: 640px) {
-  .pain-card { border-radius: 2px 6px 6px 2px; }
-  .preco-box { padding: 2rem 1.5rem; }
-  .garantia-content { padding: 2rem 1.5rem; }
-  .cesar-photo-wrapper { width: 220px; height: 220px; }
-}
-
-/* ============================================================
-   URGENCY BAR
-   ============================================================ */
-#urgency-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: linear-gradient(90deg, #7c2d12, #b45309, #7c2d12);
-  border-bottom: 1px solid rgba(251,191,36,0.4);
-  padding: 0.55rem 1rem;
-}
-
-.urgency-bar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.urgency-bar-text {
-  font-family: var(--font-head);
-  font-size: 0.82rem;
-  color: #fff;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-#countdown-timer {
-  font-family: monospace;
-  font-size: 1rem;
-  color: var(--gold-glow);
-  letter-spacing: 0.1em;
-}
-
-.urgency-bar-btn {
-  font-family: var(--font-head);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #000;
-  background: var(--gold-gradient);
-  padding: 0.35rem 1rem;
-  border-radius: 2px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: opacity 0.2s;
-}
-
-.urgency-bar-btn:hover { opacity: 0.85; }
-
-/* Compensate body for fixed urgency bar — desktop only */
-body { padding-top: 38px; }
-
-@media (max-width: 640px) {
-  #urgency-bar { display: none; }
-  body { padding-top: 0; }
-}
-
-/* ============================================================
-   STICKY BOTTOM CTA
-   ============================================================ */
-#sticky-cta {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: linear-gradient(135deg, rgba(10,4,2,0.97), rgba(20,12,4,0.97));
-  border-top: 1px solid rgba(217,119,6,0.5);
-  padding: 0.9rem 1.5rem;
-  transform: translateY(100%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(10px);
-}
-
-#sticky-cta.visible { transform: translateY(0); }
-.sticky-cta-hidden { transform: translateY(100%); }
-
-.sticky-cta-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.sticky-cta-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.sticky-cta-text strong {
-  font-family: var(--font-head);
-  font-size: 0.9rem;
-  color: var(--white);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.sticky-cta-text span {
-  font-size: 0.75rem;
-  color: var(--gray-400);
-}
-
-.sticky-cta-btn {
-  font-size: 0.8rem;
-  padding: 0.65rem 1.4rem;
-  white-space: nowrap;
-}
-
-/* ============================================================
-   EXIT INTENT POPUP
-   ============================================================ */
-#exit-popup {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-#exit-popup.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.exit-popup-hidden { opacity: 0; pointer-events: none; }
-
-.exit-popup-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(4px);
-}
-
-.exit-popup-box {
-  position: relative;
-  z-index: 1;
-  background: linear-gradient(160deg, rgba(28,22,10,0.98), rgba(15,10,5,0.99));
-  border: 1px solid rgba(217,119,6,0.5);
-  border-top: 3px solid var(--gold);
-  border-radius: 8px;
-  padding: 2.5rem 2rem;
-  max-width: 480px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 0 80px rgba(217,119,6,0.2), 0 30px 60px rgba(0,0,0,0.6);
-}
-
-.exit-popup-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  color: var(--gray-400);
-  font-size: 1.2rem;
-  cursor: pointer;
-  line-height: 1;
-  transition: color 0.2s;
-}
-
-.exit-popup-close:hover { color: var(--white); }
-
-.exit-popup-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.exit-popup-title {
-  font-family: var(--font-head);
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.exit-popup-text {
-  font-size: 0.95rem;
-  color: var(--gray-300);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-.exit-popup-btn {
-  width: 100%;
-  display: block;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-.exit-popup-microcopy {
-  font-size: 0.75rem;
-  color: var(--gray-500);
-  margin-top: 0.75rem;
-}
-
-/* ============================================================
-   PROVA SOCIAL
-   ============================================================ */
-.prova-social-section {
-  padding: 3rem 0;
-  border-top: 1px solid rgba(217,119,6,0.15);
-  border-bottom: 1px solid rgba(217,119,6,0.15);
-}
-
-.prova-social-grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-.prova-stat {
-  text-align: center;
-}
-
-.prova-num {
-  font-family: var(--font-head);
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
-  margin-bottom: 0.4rem;
-}
-
-.prova-label {
-  font-size: 0.82rem;
-  color: var(--gray-400);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.prova-divider {
-  width: 1px;
-  height: 50px;
-  background: linear-gradient(180deg, transparent, rgba(217,119,6,0.4), transparent);
-}
-
-/* ============================================================
-   SEÇÃO VIRADA — Guerreiro vencendo
-   ============================================================ */
-.section-virada {
-  position: relative;
-  min-height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  text-align: center;
-  padding: 5rem 0;
-}
-
-.virada-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url('../img/guerreiro-vencendo.png');
-  background-size: cover;
-  background-position: center top;
-  filter: brightness(0.25) saturate(0.8);
-  z-index: 0;
-}
-
-.virada-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg,
-    var(--dark-2) 0%,
-    transparent 30%,
-    transparent 70%,
-    var(--dark-2) 100%
-  );
-}
-
-.virada-content {
-  position: relative;
-  z-index: 1;
-}
-
 .virada-texto {
-  font-family: var(--font-head);
-  font-size: clamp(1.3rem, 4vw, 2rem);
-  font-weight: 600;
-  color: var(--white);
-  letter-spacing: 0.06em;
-  line-height: 1.4;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
+  font-family: 'Cormorant', Georgia, serif;
 }
 
-.virada-texto strong {
-  display: block;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-top: 0.5rem;
+/* ============================================================
+   FOOTER — refinamento
+   ============================================================ */
+#footer {
+  position: relative;
 }
 
-/* Modulo icon premium */
-.modulo-icon {
-  color: var(--gold-light);
-  filter: drop-shadow(0 0 8px rgba(245,158,11,0.3));
-}
-
-/* Recebe items premium hover */
-.recebe-item {
-  background: linear-gradient(145deg, rgba(39,39,42,0.4), rgba(24,24,27,0.3));
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-top: 1px solid rgba(217,119,6,0.2);
-}
-
-/* Sticky CTA pulse */
-@keyframes cta-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(217,119,6,0.45), 0 4px 15px rgba(0,0,0,0.4); }
-  50%       { box-shadow: 0 0 40px rgba(251,191,36,0.75), 0 4px 20px rgba(0,0,0,0.5); }
-}
-
-.sticky-cta-btn {
-  animation: cta-pulse 2.5s ease-in-out infinite;
-}
-
-/* Mobile adjustments */
+/* ============================================================
+   MOBILE — ajustes finais
+   ============================================================ */
 @media (max-width: 640px) {
-  .urgency-bar-inner { gap: 0.75rem; }
-  .prova-divider { display: none; }
-  .prova-social-grid { gap: 1.5rem; }
-  .exit-popup-box { padding: 2rem 1.25rem; }
-
-  /* Sticky CTA — full width, maior impacto */
-  #sticky-cta {
-    padding: 0.85rem 1rem 1.1rem;
-  }
-  .sticky-cta-inner {
-    flex-direction: column;
-    gap: 0.6rem;
-    text-align: center;
-  }
-  .sticky-cta-btn {
-    width: 100%;
-    font-size: 1rem;
-    padding: 0.9rem 1rem;
-    display: block;
-    text-align: center;
-    letter-spacing: 0.1em;
-  }
-  .sticky-cta-text strong {
-    font-size: 0.82rem;
-  }
-  .sticky-cta-text span {
-    font-size: 0.7rem;
+  .testimonials-screenshots {
+    grid-template-columns: 1fr;
   }
 }
