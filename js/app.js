@@ -309,19 +309,41 @@
   if (!popup) return;
   let triggered = false;
   let shown = false;
-  // Espera 10s antes de ativar
+
+  // Ativa após 10s de permanência na página
   setTimeout(function() { triggered = true; }, 10000);
-  document.addEventListener('mouseleave', function(e) {
-    if (e.clientY <= 5 && triggered && !shown) {
-      shown = true;
-      popup.classList.remove('exit-popup-hidden');
-      popup.classList.add('active');
-    }
-  });
+
+  function showPopup() {
+    if (!triggered || shown) return;
+    shown = true;
+    popup.classList.remove('exit-popup-hidden');
+    popup.classList.add('active');
+  }
+
   function closePopup() {
     popup.classList.remove('active');
     popup.classList.add('exit-popup-hidden');
   }
+
+  // Desktop: mouseleave pelo topo
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 5) showPopup();
+  });
+
+  // Mobile: detecta scroll de volta (sinal de saída)
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  if (isMobile) {
+    let maxScroll = 0;
+    window.addEventListener('scroll', function() {
+      const current = window.scrollY;
+      if (current > maxScroll) {
+        maxScroll = current;
+      } else if (maxScroll > 400 && current < maxScroll - 200) {
+        showPopup();
+      }
+    }, { passive: true });
+  }
+
   if (closeBtn) closeBtn.addEventListener('click', closePopup);
   if (overlay) overlay.addEventListener('click', closePopup);
   document.addEventListener('keydown', function(e) {

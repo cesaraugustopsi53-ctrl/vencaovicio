@@ -189,6 +189,64 @@
   font-style: italic;
 }
 
+/* Frase impacto */
+.frase-impacto-block {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+  border-left: 4px solid var(--accent);
+  padding-left: 32px;
+  text-align: left;
+}
+.frase-impacto-texto {
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  line-height: 1.75;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+.frase-impacto-texto strong {
+  color: var(--text-primary);
+  font-style: normal;
+}
+.frase-impacto-autor {
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Countdown timer na seção de preço */
+.countdown-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+.countdown-label {
+  font-size: 11px;
+  color: rgba(214,207,200,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.countdown-display {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  color: var(--accent);
+  letter-spacing: 6px;
+  line-height: 1;
+}
+
+/* Urgency bar mobile — compacta */
+@media (max-width: 768px) {
+  .urgency-bar-btn { display: none; }
+  #urgency-bar { padding: 8px 12px; }
+  .urgency-bar-text { font-size: 12px; }
+}
+
 /* Mobile: padding reduzido em cards */
 @media (max-width: 640px) {
   .pain-card { padding: 28px 20px; }

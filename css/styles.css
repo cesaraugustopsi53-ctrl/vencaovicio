@@ -1550,6 +1550,12 @@ section {
    ============================================================ */
 .prova-social-section {}
 
+/* Hero — elementos acima do fold não precisam de reveal */
+#hero .reveal {
+  opacity: 1;
+  transform: none;
+}
+
 /* ============================================================
    MOBILE — até 640px
    ============================================================ */
@@ -1570,12 +1576,16 @@ section {
     text-align: center;
   }
 
+  .hero-text-col {
+    order: -1; /* texto aparece ANTES da foto no mobile */
+  }
+
   .hero-photo-col {
-    order: -1;
+    order: 0;
   }
 
   .hero-cesar-photo {
-    max-height: 340px;
+    max-height: 300px;
   }
 
   .btn-primary {
