@@ -109,6 +109,17 @@
   text-shadow: 0 0 40px rgba(245,158,11,0.15);
 }
 
+/* Preço riscado */
+.preco-de {
+  font-size: 15px;
+  color: rgba(214,207,200,0.5);
+  margin-bottom: -8px;
+}
+.preco-riscado {
+  text-decoration: line-through;
+  color: rgba(214,207,200,0.45);
+}
+
 /* Modulo card sombra sutil */
 .modulo-card {
   box-shadow: 0 2px 12px rgba(0,0,0,0.2);

@@ -147,8 +147,8 @@ section {
    ============================================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .reveal.visible {
   opacity: 1;
@@ -775,15 +775,18 @@ section {
 .testimonials-screenshots {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 28px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .testimonial-screenshot-card {
-  border-radius: 10px;
+  border-radius: 16px;
   overflow: hidden;
   background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  border: 1px solid rgba(245,158,11,0.1);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,158,11,0.08);
 }
 
 .depo-screenshot {
@@ -1147,8 +1150,8 @@ section {
 }
 
 .preco-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-amber);
+  background: linear-gradient(145deg, #261508 0%, #1F1208 60%, #150C04 100%);
+  border: 1.5px solid rgba(245,158,11,0.4);
   border-radius: 16px;
   max-width: 500px;
   margin: 0 auto;
@@ -1158,21 +1161,25 @@ section {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  box-shadow: 0 8px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,158,11,0.1);
+  box-shadow: 0 8px 60px rgba(0,0,0,0.5), 0 0 60px rgba(217,119,6,0.08);
 }
 
 .preco-label {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--accent);
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: 999px;
+  padding: 5px 16px;
 }
 
 .preco-valor {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 80px;
+  font-size: clamp(80px, 10vw, 96px);
   color: var(--text-primary);
   line-height: 1;
   letter-spacing: 1px;
@@ -1417,9 +1424,10 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background: rgba(13,8,5,0.96);
+  background: linear-gradient(90deg, #1A0C04 0%, #0D0805 50%, #1A0C04 100%);
   backdrop-filter: blur(12px);
-  border-top: 1px solid var(--border-amber);
+  border-top: 2px solid var(--accent);
+  box-shadow: 0 -12px 40px rgba(217,119,6,0.18);
   padding: 14px 28px;
   max-width: 100%;
 }
@@ -1615,6 +1623,17 @@ section {
     width: 60px;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(245,158,11,0.4), transparent);
+  }
+
+  .ad-divider-arrow::before {
+    content: '↓';
+    display: block;
+  }
+  .ad-divider-arrow {
+    font-size: 0; /* esconde o → original */
+  }
+  .ad-divider-arrow::before {
+    font-size: 22px;
   }
 
   .cards-grid {
