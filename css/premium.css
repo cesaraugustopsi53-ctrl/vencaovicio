@@ -484,3 +484,89 @@
     margin-bottom: -40px; /* overlap leve para suavizar a transição */
   }
 }
+
+/* ═══════════════════════════════════════════════
+   ESTÉTICA CINEMATOGRÁFICA — NÍVEL CARROSSEL
+   Fonte da verdade: gerar-carrossel-v2.js (@cesaraugustoo__)
+   Verde profundo + Deakins + Willis + Bebas Neue
+═══════════════════════════════════════════════ */
+
+/* ── Fundo verde profundo — igual ao slide texto do carrossel ── */
+.section-dark,
+.section-darker {
+  position: relative;
+  background: linear-gradient(160deg, #030806 0%, #081210 35%, #0f1c14 60%, #060c08 100%);
+}
+
+/* Garante que conteúdo fique acima dos layers atmosféricos */
+.section-dark > .container,
+.section-darker > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Grain cinematográfico 35mm — Deakins/Khondji ── */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ── Deakins lighting — frio cima-direita + dourado suave baixo-esquerda ── */
+/* Exato do gerar-carrossel-v2.js htmlTexto .slide::after */
+.cine-storaro {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 40% at 75% 5%, rgba(180,220,200,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 65% 55% at 15% 95%, rgba(201,168,76,.10) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Linha dourada ESQUERDA — 3px — igual ao carrossel ── */
+/* Exato do htmlTexto/htmlImagem .slide::before */
+.cine-gold-line {
+  position: relative;
+}
+.cine-gold-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%; bottom: 10%;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #C9A84C, transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Divisor dourado 44px × 2px sólido — igual ao carrossel ── */
+.cine-divisor {
+  width: 44px;
+  height: 2px;
+  background: #C9A84C;
+  border: none;
+  margin: 20px 0 28px;
+  display: block;
+}
+
+/* ── Vinheta Willis — escurece ao redor (não só o topo) ── */
+/* Exato do htmlTexto .vinheta: at 50% 45%, transparent 25%, rgba(1,4,2,.65) */
+.cine-vinheta {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 86% 80% at 50% 45%, transparent 25%, rgba(1,4,2,.65) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Mobile: ocultar vinheta (seção usa img real com mask) */
+@media (max-width: 768px) {
+  .cine-vinheta { display: none; }
+}
