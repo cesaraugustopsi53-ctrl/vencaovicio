@@ -1718,3 +1718,101 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   CINEMATOGRAFIA — classes compartilhadas com RM
+   Referência: gerar-carrossel-v2.js (@cesaraugustoo__)
+   ============================================================ */
+
+/* Grain overlay cinematográfico 35mm (canvas injetado via JS) */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.025;
+  mix-blend-mode: soft-light;
+}
+
+/* Linha dourada esquerda — carrossel pattern */
+.cine-gold-line {
+  position: relative;
+}
+.cine-gold-line > .container { position: relative; z-index: 1; }
+.cine-gold-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%; bottom: 10%;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Divisor dourado 44px */
+.cine-divisor {
+  width: 44px;
+  height: 2px;
+  background: var(--accent);
+  border: none;
+  margin: 20px 0 28px;
+  display: block;
+}
+
+/* Deakins lighting — elipses de luz nas seções texto */
+.cine-storaro {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 80% 5%, rgba(180,140,60,.06) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 70% at 10% 100%, rgba(217,119,6,.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Vinheta Willis — escurece bordas, centro limpo */
+.cine-vinheta {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 86% 80% at 50% 45%, transparent 25%, rgba(1,4,2,.65) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Seções cinematográficas com imagem de fundo no desktop */
+.section-cine-guerra,
+.section-cine-mecanismo,
+.section-cine-virada,
+.section-urgencia {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Img mobile oculta por padrão (desktop usa CSS background via vinheta) */
+.cine-img-mobile { display: none; }
+
+/* ── MOBILE: img real com fade — topo E base ── */
+@media (max-width: 768px) {
+  /* Oculta vinheta — img real substitui */
+  .cine-vinheta { display: none; }
+
+  /* Remove min-height e centra layout das seções cinematográficas */
+  .section-cine-guerra,
+  .section-cine-mecanismo,
+  .section-cine-virada,
+  .section-urgencia { min-height: unset; display: block; }
+
+  /* Img real com dissolve topo + base — Deakins */
+  .cine-img-mobile {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.72) saturate(0.55) contrast(1.12);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 60%, transparent 100%);
+    margin-bottom: -40px;
+  }
+}
