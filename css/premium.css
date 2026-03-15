@@ -460,6 +460,8 @@
     background-image: none;
     min-height: unset;
     display: block;
+    /* Imagem começa direto no topo — sem gap escuro antes da foto */
+    padding-top: 0 !important;
   }
 
   /* Remove overlays (::before/::after) no mobile — img já tem fade */
@@ -470,18 +472,18 @@
     display: none;
   }
 
-  /* Img real: dissolve topo E base → funde com seção acima e abaixo */
+  /* Img real: sem fade no topo (imagem começa na borda), dissolve na base */
   .cine-img-mobile {
     display: block;
     width: 100%;
-    height: 340px;
+    height: 320px;
     object-fit: cover;
     object-position: center 20%;
     filter: brightness(0.76) saturate(0.60) contrast(1.15);
-    /* Fade topo E base: sem recorte visível em nenhuma borda */
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 55%, transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 55%, transparent 100%);
-    margin-bottom: -50px;
+    /* Opaco no topo, dissolve apenas no fundo para fundir com o conteúdo */
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+    margin-bottom: -80px;
   }
 }
 
@@ -597,9 +599,10 @@ body p, .mecanismo-texto, .objecao-resposta, .faq-answer p,
 #hero > .container { position: relative; z-index: 1; }
 
 /* ── Atmospheric bleed — travelling de câmera entre seções (Lubezki) ── */
+/* Só nas transições entre seções de cores diferentes */
 .section-dark,
 .section-darker {
-  box-shadow: 0 -40px 80px rgba(3,8,6,0.8) inset;
+  box-shadow: 0 -20px 48px rgba(3,8,6,0.4) inset;
 }
 
 /* ── Nível A: seções de alta emoção recebem tratamento completo ── */
