@@ -271,135 +271,197 @@
 /* ═══════════════════════════════════════════════
    UPGRADE CINEMATOGRÁFICO — VENÇA O VÍCIO
    Referências: Deakins / Lubezki / Gordon Willis
+   Abordagem: imagem É a seção — fluxo atmosférico
 ═══════════════════════════════════════════════ */
 
-/* Seção guerra: homem na escuridão com feixe de luz */
+/* ─── GUERRA: homem na escuridão com feixe de luz ─── */
 .section-cine-guerra {
   position: relative;
-  background-color: #0d0805;
+  background-color: #0d0d14;
   background-image: url('../img/cine-guerra.jpg');
   background-size: cover;
   background-position: center 30%;
+  background-attachment: scroll;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow: hidden;
 }
+/* Overlay: luz no topo (imagem visível), escuro embaixo (texto legível) */
 .section-cine-guerra::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(13,8,5,0.88) 0%, rgba(13,8,5,0.72) 40%, rgba(13,8,5,0.88) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(13,13,20, 0.08) 0%,
+    rgba(13,13,20, 0.18) 30%,
+    rgba(13,13,20, 0.65) 55%,
+    rgba(13,13,20, 0.90) 75%,
+    rgba(13,13,20, 0.97) 100%
+  );
   z-index: 0;
+  pointer-events: none;
+}
+/* Sangramento de cor para a seção seguinte (antes-depois) */
+.section-cine-guerra::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: 0; right: 0;
+  height: 160px;
+  background: linear-gradient(to bottom, transparent, #0d0d14);
+  z-index: 2;
+  pointer-events: none;
 }
 .section-cine-guerra .container,
 .section-cine-guerra > * { position: relative; z-index: 1; }
 
-/* Seção mecanismo: homem na cama, luz Rembrandt */
+/* ─── MECANISMO: homem na cama, luz Rembrandt âmbar ─── */
 .section-cine-mecanismo {
   position: relative;
-  background-color: #0d0805;
+  background-color: #14100a;
   background-image: url('../img/cine-recaida.jpg');
   background-size: cover;
   background-position: center 20%;
+  background-attachment: scroll;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow: hidden;
 }
 .section-cine-mecanismo::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(13,8,5,0.93) 0%, rgba(13,8,5,0.80) 50%, rgba(13,8,5,0.93) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(20,16,10, 0.08) 0%,
+    rgba(20,16,10, 0.20) 28%,
+    rgba(20,16,10, 0.62) 52%,
+    rgba(20,16,10, 0.88) 72%,
+    rgba(20,16,10, 0.96) 100%
+  );
   z-index: 0;
+  pointer-events: none;
+}
+/* Sangramento âmbar quente → virada */
+.section-cine-mecanismo::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: 0; right: 0;
+  height: 160px;
+  background: linear-gradient(to bottom, transparent, #14100a);
+  z-index: 2;
+  pointer-events: none;
 }
 .section-cine-mecanismo .container,
 .section-cine-mecanismo > * { position: relative; z-index: 1; }
 
-/* Seção virada: horizonte dourado, paisagem ao amanhecer */
+/* ─── VIRADA: horizonte dourado, amanhecer ─── */
 .section-cine-virada {
   position: relative;
-  background-color: #0a0c14;
+  background-color: #1a1205;
   background-image: url('../img/cine-virada.jpg');
   background-size: cover;
   background-position: center 35%;
+  background-attachment: scroll;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow: hidden;
 }
 .section-cine-virada::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(13,8,5,0.55) 0%, rgba(13,8,5,0.85) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(26,18,5, 0.06) 0%,
+    rgba(26,18,5, 0.15) 28%,
+    rgba(26,18,5, 0.58) 52%,
+    rgba(26,18,5, 0.86) 72%,
+    rgba(26,18,5, 0.96) 100%
+  );
   z-index: 0;
+  pointer-events: none;
+}
+/* Sangramento dourado → depoimentos */
+.section-cine-virada::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: 0; right: 0;
+  height: 160px;
+  background: linear-gradient(to bottom, transparent, #1a1205);
+  z-index: 2;
+  pointer-events: none;
 }
 .section-cine-virada .container,
 .section-cine-virada > * { position: relative; z-index: 1; }
 
-/* Seção urgência/CTA: silhueta em porta de luz */
+/* ─── URGÊNCIA/CTA: silhueta em porta de luz ─── */
 .section-cine-saida {
   position: relative;
   background-color: #150c04;
   background-image: url('../img/cine-saida.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 20%;
+  background-attachment: scroll;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow: hidden;
 }
 .section-cine-saida::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(21,12,4,0.90) 0%, rgba(13,8,5,0.75) 40%, rgba(13,8,5,0.75) 60%, rgba(21,12,4,0.92) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(21,12,4, 0.08) 0%,
+    rgba(21,12,4, 0.20) 28%,
+    rgba(21,12,4, 0.65) 55%,
+    rgba(21,12,4, 0.90) 75%,
+    rgba(21,12,4, 0.97) 100%
+  );
   z-index: 0;
+  pointer-events: none;
+}
+/* Sangramento final para seção ps */
+.section-cine-saida::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: 0; right: 0;
+  height: 160px;
+  background: linear-gradient(to bottom, transparent, #150c04);
+  z-index: 2;
+  pointer-events: none;
 }
 .section-cine-saida .container,
 .section-cine-saida > * { position: relative; z-index: 1; }
 
-/* Mobile: desativar parallax, centralizar */
+/* Mobile: altura suficiente para a imagem ser vista */
 @media (max-width: 768px) {
   .section-cine-guerra,
   .section-cine-mecanismo,
   .section-cine-virada,
   .section-cine-saida {
+    min-height: 420px;
     background-attachment: scroll;
-    background-position: center center;
   }
 }
 
-/* Mobile portrait: ajuste de background-position para imagens cinematográficas */
+/* Mobile portrait: posição da imagem ajustada por seção */
 @media (max-width: 640px) {
-  .section-cine-guerra    { background-position: center 15% !important; }
-  .section-cine-mecanismo { background-position: center 10% !important; }
-  .section-cine-virada    { background-position: center 25% !important; }
-  .section-cine-saida     { background-position: center 5% !important; }
-}
-
-/* Mobile: imagem real com espaço visual cinematográfico */
-.cine-img-mobile {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  /* Remove CSS background — real <img> ocupa o espaço visual */
-  .section-cine-guerra,
-  .section-cine-mecanismo,
-  .section-cine-virada,
-  .section-cine-saida {
-    background-image: none;
-  }
-
-  /* Remove overlay pseudo-element quando bg foi removido */
-  .section-cine-guerra::before,
-  .section-cine-mecanismo::before,
-  .section-cine-virada::before,
-  .section-cine-saida::before {
-    display: none;
-  }
-
-  /* Imagem real com impacto visual no mobile */
-  .cine-img-mobile {
-    display: block;
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    object-position: center 25%;
-    filter: brightness(0.80) saturate(0.70) contrast(1.14);
-    position: relative;
-    z-index: 1;
-    margin-bottom: 0;
-  }
+  .section-cine-guerra    { background-position: center 15%; }
+  .section-cine-mecanismo { background-position: center 10%; }
+  .section-cine-virada    { background-position: center 25%; }
+  .section-cine-saida     { background-position: center 5%; }
 }
