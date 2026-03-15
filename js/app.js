@@ -1,4 +1,31 @@
 /* ============================================================
+   CINEMA GRAIN CANVAS — ruído analógico real (Deakins/Khondji)
+   ============================================================ */
+(function initCinemaGrain() {
+  var overlay = document.querySelector('.grain-overlay');
+  if (!overlay) return;
+  var c = document.createElement('canvas');
+  c.width = 512; c.height = 512;
+  var ctx = c.getContext('2d');
+  function render() {
+    var d = ctx.createImageData(512, 512);
+    for (var i = 0; i < d.data.length; i += 4) {
+      var v = Math.random() * 255 | 0;
+      d.data[i] = d.data[i+1] = d.data[i+2] = v;
+      d.data[i+3] = 255;
+    }
+    ctx.putImageData(d, 0, 0);
+    overlay.style.backgroundImage = 'url(' + c.toDataURL() + ')';
+    overlay.style.backgroundSize = '512px 512px';
+  }
+  render();
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(render, 150);
+  }
+})();
+
+
+/* ============================================================
    FIRE PARTICLES — Canvas hero animation
    ============================================================ */
 (function initFireCanvas() {

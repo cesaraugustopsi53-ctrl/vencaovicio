@@ -277,7 +277,7 @@
 /* ─── GUERRA: homem na escuridão com feixe de luz ─── */
 .section-cine-guerra {
   position: relative;
-  background-color: #0d0d14;
+  background-color: #060c08;
   background-image: url('../img/cine-guerra.jpg');
   background-size: cover;
   background-position: center 30%;
@@ -311,7 +311,7 @@
   bottom: -80px;
   left: 0; right: 0;
   height: 160px;
-  background: linear-gradient(to bottom, transparent, #0d0d14);
+  background: linear-gradient(to bottom, transparent, #060c08);
   z-index: 2;
   pointer-events: none;
 }
@@ -321,7 +321,7 @@
 /* ─── MECANISMO: homem na cama, luz Rembrandt âmbar ─── */
 .section-cine-mecanismo {
   position: relative;
-  background-color: #14100a;
+  background-color: #060c08;
   background-image: url('../img/cine-recaida.jpg');
   background-size: cover;
   background-position: center 20%;
@@ -354,7 +354,7 @@
   bottom: -80px;
   left: 0; right: 0;
   height: 160px;
-  background: linear-gradient(to bottom, transparent, #14100a);
+  background: linear-gradient(to bottom, transparent, #060c08);
   z-index: 2;
   pointer-events: none;
 }
@@ -364,7 +364,7 @@
 /* ─── VIRADA: horizonte dourado, amanhecer ─── */
 .section-cine-virada {
   position: relative;
-  background-color: #1a1205;
+  background-color: #060c08;
   background-image: url('../img/cine-virada.jpg');
   background-size: cover;
   background-position: center 35%;
@@ -397,7 +397,7 @@
   bottom: -80px;
   left: 0; right: 0;
   height: 160px;
-  background: linear-gradient(to bottom, transparent, #1a1205);
+  background: linear-gradient(to bottom, transparent, #060c08);
   z-index: 2;
   pointer-events: none;
 }
@@ -407,7 +407,7 @@
 /* ─── URGÊNCIA/CTA: silhueta em porta de luz ─── */
 .section-cine-saida {
   position: relative;
-  background-color: #150c04;
+  background-color: #060c08;
   background-image: url('../img/cine-saida.jpg');
   background-size: cover;
   background-position: center 20%;
@@ -440,7 +440,7 @@
   bottom: -80px;
   left: 0; right: 0;
   height: 160px;
-  background: linear-gradient(to bottom, transparent, #150c04);
+  background: linear-gradient(to bottom, transparent, #060c08);
   z-index: 2;
   pointer-events: none;
 }
@@ -505,27 +505,24 @@
   z-index: 1;
 }
 
-/* ── Grain cinematográfico 35mm — Deakins/Khondji ── */
+/* ── Grain cinematográfico 35mm — Canvas JS real (Deakins/Khondji) ── */
+/* background-image injetado via JS — initCinemaGrain() em app.js */
 .grain-overlay {
   position: fixed;
   inset: 0;
   z-index: 9998;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.025;
   mix-blend-mode: soft-light;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 200px 200px;
 }
 
-/* ── Deakins lighting — frio cima-direita + dourado suave baixo-esquerda ── */
-/* Exato do gerar-carrossel-v2.js htmlTexto .slide::after */
+/* ── Deakins lighting — elipses recalibradas para web (formato retangular horizontal) ── */
 .cine-storaro {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 50% 40% at 75% 5%, rgba(180,220,200,.07) 0%, transparent 60%),
-    radial-gradient(ellipse 65% 55% at 15% 95%, rgba(201,168,76,.10) 0%, transparent 60%);
+    radial-gradient(ellipse 70% 55% at 80% 5%, rgba(180,220,200,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 70% at 10% 100%, rgba(201,168,76,.10) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -569,4 +566,80 @@
 /* Mobile: ocultar vinheta (seção usa img real com mask) */
 @media (max-width: 768px) {
   .cine-vinheta { display: none; }
+}
+
+/* ═══════════════════════════════════════════════
+   CINEMATOGRAPHIC TAKEOVER — NÍVEL BLADE RUNNER 2049
+   Deakins / Lubezki / Willis / Khondji
+   ═══════════════════════════════════════════════ */
+
+/* ── Inter 300 Light nos parágrafos de corpo ── */
+body p, .mecanismo-texto, .objecao-resposta, .faq-answer p,
+.ps-texto, .autoridade-lead, .autoridade-fechamento,
+.section-subtitle, .section-lead, .hero-subtitle {
+  font-weight: 300;
+}
+
+/* ── VV Hero — camada Deakins adicional ── */
+#hero {
+  position: relative;
+}
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 80% 5%, rgba(180,220,200,.05) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 70% at 10% 100%, rgba(201,168,76,.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+#hero > .container { position: relative; z-index: 1; }
+
+/* ── Atmospheric bleed — travelling de câmera entre seções (Lubezki) ── */
+.section-dark,
+.section-darker {
+  box-shadow: 0 -40px 80px rgba(3,8,6,0.8) inset;
+}
+
+/* ── Nível A: seções de alta emoção recebem tratamento completo ── */
+#depoimentos.cine-gold-line,
+#autoridade.cine-gold-line {
+  background: linear-gradient(160deg, #030806 0%, #081210 35%, #0f1c14 60%, #060c08 100%) !important;
+}
+
+/* ── Nível B: seções de conteúdo — Deakins lighting ── */
+#objecoes,
+#o-que-recebe,
+#para-quem {
+  position: relative;
+}
+
+/* ── Nível C: seções de suporte ── */
+#garantia,
+#ps,
+#faq {
+  background: linear-gradient(160deg, #030806 0%, #081210 35%, #0f1c14 60%, #060c08 100%);
+  position: relative;
+}
+#garantia::before,
+#ps::before,
+#faq::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 80% 5%, rgba(180,220,200,.05) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 70% at 10% 100%, rgba(201,168,76,.07) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+#garantia .container,
+#ps .container,
+#faq .container { position: relative; z-index: 1; }
+
+/* ── Footer cinematográfico ── */
+#footer {
+  background: linear-gradient(to bottom, #060c08, #030806) !important;
+  border-top: 1px solid rgba(201,168,76,.15) !important;
 }
