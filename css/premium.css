@@ -267,3 +267,91 @@
   .recebe-item { padding: 24px 16px; }
   .guerra-card { padding: 28px 24px; }
 }
+
+/* ═══════════════════════════════════════════════
+   UPGRADE CINEMATOGRÁFICO — VENÇA O VÍCIO
+   Referências: Deakins / Lubezki / Gordon Willis
+═══════════════════════════════════════════════ */
+
+/* Seção guerra: homem na escuridão com feixe de luz */
+.section-cine-guerra {
+  position: relative;
+  background-image: url('../img/cine-guerra.jpg') !important;
+  background-size: cover;
+  background-position: center 30%;
+  overflow: hidden;
+}
+.section-cine-guerra::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,8,5,0.88) 0%, rgba(13,8,5,0.72) 40%, rgba(13,8,5,0.88) 100%);
+  z-index: 0;
+}
+.section-cine-guerra .container,
+.section-cine-guerra > * { position: relative; z-index: 1; }
+
+/* Seção mecanismo: homem na cama, luz Rembrandt */
+.section-cine-mecanismo {
+  position: relative;
+  background-image: url('../img/cine-recaida.jpg') !important;
+  background-size: cover;
+  background-position: center 20%;
+  overflow: hidden;
+}
+.section-cine-mecanismo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13,8,5,0.93) 0%, rgba(13,8,5,0.80) 50%, rgba(13,8,5,0.93) 100%);
+  z-index: 0;
+}
+.section-cine-mecanismo .container,
+.section-cine-mecanismo > * { position: relative; z-index: 1; }
+
+/* Seção virada: horizonte dourado, paisagem ao amanhecer */
+.section-cine-virada {
+  position: relative;
+  background-image: url('../img/cine-virada.jpg') !important;
+  background-size: cover;
+  background-position: center 35%;
+  overflow: hidden;
+}
+.section-cine-virada::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(13,8,5,0.55) 0%, rgba(13,8,5,0.85) 100%);
+  z-index: 0;
+}
+.section-cine-virada .container,
+.section-cine-virada > * { position: relative; z-index: 1; }
+
+/* Seção urgência/CTA: silhueta em porta de luz */
+.section-cine-saida {
+  position: relative;
+  background-image: url('../img/cine-saida.jpg') !important;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.section-cine-saida::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(21,12,4,0.90) 0%, rgba(13,8,5,0.75) 40%, rgba(13,8,5,0.75) 60%, rgba(21,12,4,0.92) 100%);
+  z-index: 0;
+}
+.section-cine-saida .container,
+.section-cine-saida > * { position: relative; z-index: 1; }
+
+/* Mobile: desativar parallax, centralizar */
+@media (max-width: 768px) {
+  .section-cine-guerra,
+  .section-cine-mecanismo,
+  .section-cine-virada,
+  .section-cine-saida {
+    background-attachment: scroll;
+    background-position: center center;
+  }
+}
