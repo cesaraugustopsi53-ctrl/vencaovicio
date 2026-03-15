@@ -447,21 +447,40 @@
 .section-cine-saida .container,
 .section-cine-saida > * { position: relative; z-index: 1; }
 
-/* Mobile: altura suficiente para a imagem ser vista */
+/* Desktop: img oculta, CSS background assume */
+.cine-img-mobile { display: none; }
+
+/* ── MOBILE: img real com fade bottom → funde no fundo da seção ── */
 @media (max-width: 768px) {
+  /* Remove CSS background: real <img> substitui com elegância */
   .section-cine-guerra,
   .section-cine-mecanismo,
   .section-cine-virada,
   .section-cine-saida {
-    min-height: 420px;
-    background-attachment: scroll;
+    background-image: none;
+    min-height: unset;
+    display: block;
   }
-}
 
-/* Mobile portrait: posição da imagem ajustada por seção */
-@media (max-width: 640px) {
-  .section-cine-guerra    { background-position: center 15%; }
-  .section-cine-mecanismo { background-position: center 10%; }
-  .section-cine-virada    { background-position: center 25%; }
-  .section-cine-saida     { background-position: center 5%; }
+  /* Remove overlays (::before/::after) no mobile — img já tem fade */
+  .section-cine-guerra::before,  .section-cine-guerra::after,
+  .section-cine-mecanismo::before, .section-cine-mecanismo::after,
+  .section-cine-virada::before,  .section-cine-virada::after,
+  .section-cine-saida::before,   .section-cine-saida::after {
+    display: none;
+  }
+
+  /* Img real: aparece, dissolve na base → funde com o fundo da seção */
+  .cine-img-mobile {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center 20%;
+    filter: brightness(0.82) saturate(0.72) contrast(1.12);
+    /* Fade bottom: imagem flui para o fundo da seção */
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
+    margin-bottom: -40px; /* overlap leve para suavizar a transição */
+  }
 }
