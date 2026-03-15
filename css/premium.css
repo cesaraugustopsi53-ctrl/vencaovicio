@@ -470,7 +470,7 @@
     display: none;
   }
 
-  /* Img real: aparece, dissolve na base → funde com o fundo da seção */
+  /* Img real: dissolve topo E base → funde com seção acima e abaixo */
   .cine-img-mobile {
     display: block;
     width: 100%;
@@ -478,10 +478,10 @@
     object-fit: cover;
     object-position: center 20%;
     filter: brightness(0.76) saturate(0.60) contrast(1.15);
-    /* Fade bottom: imagem flui para o fundo da seção */
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
-    margin-bottom: -50px; /* overlap maior para fusão mais suave */
+    /* Fade topo E base: sem recorte visível em nenhuma borda */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 55%, transparent 100%);
+    margin-bottom: -50px;
   }
 }
 
