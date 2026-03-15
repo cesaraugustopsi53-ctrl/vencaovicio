@@ -261,8 +261,13 @@
     localStorage.setItem(key, deadline);
   }
   function updateTimer() {
-    const diff = parseInt(deadline) - Date.now();
-    if (diff <= 0) { document.getElementById('countdown-timer').textContent = '00:00:00'; return; }
+    let diff = parseInt(deadline) - Date.now();
+    if (diff <= 0) {
+      // Renova automaticamente — timer sempre ativo para novos visitantes
+      deadline = Date.now() + 24 * 60 * 60 * 1000;
+      localStorage.setItem(key, deadline);
+      diff = parseInt(deadline) - Date.now();
+    }
     const h = Math.floor(diff / 3600000);
     const m = Math.floor((diff % 3600000) / 60000);
     const s = Math.floor((diff % 60000) / 1000);
