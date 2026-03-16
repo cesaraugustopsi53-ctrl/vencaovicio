@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Termos de Uso — Reconstrução Masculina</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ── PÁGINA LEGAL ──────────────────────────────────────── */
+    body {
+      background: var(--bege);
+    }
+
+    /* Cabeçalho */
+    .legal-header {
+      background: var(--verde);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    }
+    .legal-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .legal-header__logo {
+      font-family: var(--fonte-titulo);
+      font-size: 1.35rem;
+      color: var(--dourado);
+      letter-spacing: .03em;
+      line-height: 1.1;
+    }
+    .legal-header__logo span {
+      display: block;
+      font-size: .75rem;
+      font-family: var(--fonte-corpo);
+      font-weight: 500;
+      color: rgba(255,255,255,.65);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .btn-voltar {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 1.5px solid var(--dourado);
+      color: var(--dourado);
+      font-family: var(--fonte-corpo);
+      font-weight: 600;
+      font-size: .85rem;
+      padding: 8px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-voltar:hover {
+      background: var(--dourado);
+      color: var(--verde);
+    }
+    .btn-voltar svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Conteúdo */
+    .legal-wrap {
+      max-width: 780px;
+      margin: 48px auto 72px;
+      padding: 0 20px;
+    }
+    .legal-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--sombra);
+      padding: 48px 44px;
+    }
+    @media (max-width: 600px) {
+      .legal-card { padding: 28px 20px; }
+    }
+
+    .legal-titulo {
+      font-family: var(--fonte-titulo);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      color: var(--verde);
+      margin-bottom: 6px;
+    }
+    .legal-subtitulo {
+      font-size: .9rem;
+      color: var(--cinza);
+      margin-bottom: 36px;
+      border-bottom: 2px solid var(--bege2);
+      padding-bottom: 20px;
+    }
+    .legal-subtitulo strong {
+      color: var(--texto);
+    }
+
+    .legal-secao {
+      margin-bottom: 36px;
+    }
+    .legal-secao h2 {
+      font-family: var(--fonte-titulo);
+      font-size: 1.15rem;
+      color: var(--verde);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .legal-secao h2 .num {
+      background: var(--verde);
+      color: var(--dourado);
+      font-family: var(--fonte-corpo);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: .05em;
+      flex-shrink: 0;
+    }
+    .legal-secao p,
+    .legal-secao li {
+      font-size: .97rem;
+      color: var(--texto);
+      line-height: 1.75;
+      margin-bottom: .6rem;
+    }
+    .legal-secao ul {
+      padding-left: 20px;
+      margin-bottom: .6rem;
+    }
+    .legal-secao li {
+      margin-bottom: .4rem;
+    }
+
+    /* Destaque */
+    .legal-destaque {
+      background: var(--bege);
+      border-left: 3px solid var(--dourado);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: .93rem;
+      color: var(--texto);
+    }
+
+    /* Rodapé */
+    .legal-footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--bege2);
+      font-size: .85rem;
+      color: var(--cinza);
+    }
+    .legal-footer a {
+      color: var(--verde);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="legal-header">
+    <div class="container legal-header__inner">
+      <div class="legal-header__logo">
+        César Augusto
+        <span>Terapeuta Masculino &amp; Psicanalista</span>
+      </div>
+      <a href="index.html" class="btn-voltar">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Voltar à página
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="legal-wrap">
+    <div class="legal-card">
+
+      <h1 class="legal-titulo">Termos de Uso</h1>
+      <p class="legal-subtitulo">
+        Produto: <strong>Curso Online Reconstrução Masculina</strong> &nbsp;|&nbsp;
+        Última atualização: <strong>13 de março de 2026</strong>
+      </p>
+
+      <!-- 1. OBJETO -->
+      <div class="legal-secao">
+        <h2><span class="num">01</span> Objeto do Contrato</h2>
+        <p>
+          O presente Termo de Uso regula as condições de acesso e utilização do curso digital
+          <strong>Reconstrução Masculina</strong>, produto de educação online desenvolvido e
+          comercializado por <strong>César Augusto</strong>, Terapeuta Masculino e Psicanalista,
+          <!-- PREENCHER: substitua o texto entre colchetes pelo seu CPF ou CNPJ -->
+          inscrito sob o [CPF/CNPJ do titular], com e-mail de contato
+          <a href="mailto:contato@cesaraugustopsi.com.br">contato@cesaraugustopsi.com.br</a>.
+        </p>
+        <p>
+          Ao concluir a compra do curso, o comprador (doravante "Aluno") declara ter lido,
+          compreendido e concordado integralmente com todos os termos aqui dispostos. Caso não
+          concorde com qualquer cláusula, o Aluno não deverá prosseguir com a aquisição.
+        </p>
+      </div>
+
+      <!-- 2. CONDIÇÕES DE ACESSO -->
+      <div class="legal-secao">
+        <h2><span class="num">02</span> Condições de Acesso</h2>
+        <p>
+          Após a confirmação do pagamento pela plataforma <strong>Kiwify</strong>, o Aluno
+          receberá, no e-mail cadastrado no momento da compra, as instruções de acesso ao
+          ambiente do curso.
+        </p>
+        <ul>
+          <li>O acesso é <strong>individual e intransferível</strong>, vinculado ao CPF e ao e-mail
+          fornecidos no ato da compra.</li>
+          <li>O Aluno poderá acessar o conteúdo por <strong>1 (um) ano</strong> a contar da data
+          de confirmação do pagamento.</li>
+          <li>O curso é compatível com <strong>computador, tablet e smartphone</strong>, desde
+          que o dispositivo possua acesso à internet e navegador atualizado.</li>
+          <li>O compartilhamento de login com terceiros é expressamente proibido e poderá
+          resultar no cancelamento do acesso sem direito a reembolso.</li>
+          <li>O produtor não se responsabiliza por eventuais indisponibilidades temporárias da
+          plataforma Kiwify ou de serviços de terceiros que estejam fora de seu controle.</li>
+        </ul>
+      </div>
+
+      <!-- 3. POLÍTICA DE REEMBOLSO -->
+      <div class="legal-secao">
+        <h2><span class="num">03</span> Política de Reembolso — Garantia de 7 Dias</h2>
+        <div class="legal-destaque">
+          O curso Reconstrução Masculina oferece <strong>garantia incondicional de 7 (sete) dias
+          corridos</strong> a partir da data de compra, em conformidade com o art. 49 do Código
+          de Defesa do Consumidor (Lei n.º 8.078/1990).
+        </div>
+        <p>
+          Para solicitar o reembolso dentro do prazo de garantia, o Aluno deverá enviar um
+          e-mail para <a href="mailto:contato@cesaraugustopsi.com.br">contato@cesaraugustopsi.com.br</a>
+          com o assunto <em>"Solicito Reembolso — Reconstrução Masculina"</em>, informando o
+          nome completo e o e-mail utilizado na compra.
+        </p>
+        <p>
+          O reembolso será processado pela plataforma Kiwify em até 7 dias úteis após a
+          confirmação da solicitação, mediante estorno no cartão de crédito ou transferência
+          bancária, conforme a forma de pagamento original. Após o prazo de 7 dias corridos,
+          não será concedido reembolso por qualquer motivo.
+        </p>
+      </div>
+
+      <!-- 4. DIREITOS AUTORAIS -->
+      <div class="legal-secao">
+        <h2><span class="num">04</span> Direitos Autorais e Propriedade Intelectual</h2>
+        <p>
+          Todo o conteúdo disponibilizado no curso Reconstrução Masculina — incluindo, mas não
+          se limitando a, vídeoaulas, materiais em PDF, áudios, textos, metodologias, exercícios
+          e demais recursos — é de <strong>propriedade exclusiva de César Augusto</strong> e está
+          protegido pela Lei de Direitos Autorais (Lei n.º 9.610/1998) e pela legislação
+          aplicável de propriedade intelectual.
+        </p>
+        <p>
+          A compra do curso confere ao Aluno uma <strong>licença pessoal, não exclusiva,
+          intransferível e revogável</strong> de acesso ao conteúdo, exclusivamente para uso
+          privado e educacional.
+        </p>
+      </div>
+
+      <!-- 5. USO PERMITIDO -->
+      <div class="legal-secao">
+        <h2><span class="num">05</span> Uso Permitido e Vedações</h2>
+        <p>É <strong>expressamente proibido</strong> ao Aluno:</p>
+        <ul>
+          <li>Reproduzir, copiar, distribuir, vender, sublicenciar ou ceder o conteúdo do
+          curso a terceiros, a título oneroso ou gratuito.</li>
+          <li>Gravar, capturar ou fazer download não autorizado das aulas em vídeo.</li>
+          <li>Utilizar o conteúdo do curso para fins comerciais, ministração de aulas,
+          palestras ou qualquer outra atividade remunerada.</li>
+          <li>Publicar o conteúdo do curso em redes sociais, plataformas de vídeo ou qualquer
+          outro canal público sem autorização prévia e expressa do autor.</li>
+          <li>Compartilhar credenciais de acesso (e-mail e senha) com outros usuários.</li>
+        </ul>
+        <p>
+          O descumprimento destas proibições sujeitará o Aluno às penalidades cíveis e criminais
+          previstas na legislação brasileira, incluindo indenização por perdas e danos.
+        </p>
+      </div>
+
+      <!-- 6. LIMITAÇÃO DE RESPONSABILIDADE -->
+      <div class="legal-secao">
+        <h2><span class="num">06</span> Limitação de Responsabilidade e Resultados</h2>
+        <p>
+          O curso Reconstrução Masculina oferece um método clínico estruturado, baseado na
+          experiência prática e nos estudos de César Augusto. No entanto, os resultados obtidos
+          por cada Aluno dependem de fatores individuais — como dedicação, contexto do
+          relacionamento, histórico pessoal e disposição das partes envolvidas — que estão
+          inteiramente fora do controle do produtor.
+        </p>
+        <p>
+          César Augusto não garante resultados específicos, tais como salvamento do casamento,
+          perdão da cônjuge ou resolução de conflitos conjugais. O conteúdo do curso é de
+          natureza educativa e informativa, e <strong>não substitui acompanhamento terapêutico
+          individualizado, aconselhamento jurídico ou qualquer outra forma de assistência
+          profissional especializada</strong>.
+        </p>
+        <p>
+          O produtor não se responsabiliza por decisões tomadas pelo Aluno com base no
+          conteúdo do curso, nem por quaisquer danos diretos, indiretos ou consequenciais
+          decorrentes da aplicação das informações disponibilizadas.
+        </p>
+      </div>
+
+      <!-- 7. FORO -->
+      <div class="legal-secao">
+        <h2><span class="num">07</span> Foro e Lei Aplicável</h2>
+        <p>
+          O presente Termo de Uso é regido pelas leis da República Federativa do Brasil.
+          Para a resolução de quaisquer controvérsias decorrentes ou relacionadas a este
+          instrumento, fica eleito o foro da comarca de <strong>São Paulo, Estado de São Paulo</strong>,
+          com exclusão de qualquer outro, por mais privilegiado que seja.
+        </p>
+      </div>
+
+      <!-- 8. VIGÊNCIA -->
+      <div class="legal-secao">
+        <h2><span class="num">08</span> Vigência e Atualizações</h2>
+        <p>
+          Este Termo de Uso entra em vigor na data de sua publicação, <strong>13 de março de
+          2026</strong>, e permanece válido por prazo indeterminado. César Augusto reserva-se
+          o direito de atualizar este documento a qualquer momento, sendo o Aluno notificado
+          por e-mail em caso de alterações substanciais.
+        </p>
+        <p>
+          A continuidade do acesso ao curso após qualquer atualização implica a aceitação
+          automática dos novos termos.
+        </p>
+      </div>
+
+      <!-- RODAPÉ DO CARD -->
+      <div class="legal-footer">
+        <p>
+          Dúvidas? Entre em contato:
+          <a href="mailto:contato@cesaraugustopsi.com.br">contato@cesaraugustopsi.com.br</a>
+        </p>
+        <p style="margin-top:12px;">
+          <a href="index.html">← Voltar à página do curso</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="privacidade.html">Política de Privacidade</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

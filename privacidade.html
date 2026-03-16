@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Política de Privacidade — Reconstrução Masculina</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ── PÁGINA LEGAL ──────────────────────────────────────── */
+    body {
+      background: var(--bege);
+    }
+
+    /* Cabeçalho */
+    .legal-header {
+      background: var(--verde);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    }
+    .legal-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .legal-header__logo {
+      font-family: var(--fonte-titulo);
+      font-size: 1.35rem;
+      color: var(--dourado);
+      letter-spacing: .03em;
+      line-height: 1.1;
+    }
+    .legal-header__logo span {
+      display: block;
+      font-size: .75rem;
+      font-family: var(--fonte-corpo);
+      font-weight: 500;
+      color: rgba(255,255,255,.65);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .btn-voltar {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 1.5px solid var(--dourado);
+      color: var(--dourado);
+      font-family: var(--fonte-corpo);
+      font-weight: 600;
+      font-size: .85rem;
+      padding: 8px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-voltar:hover {
+      background: var(--dourado);
+      color: var(--verde);
+    }
+    .btn-voltar svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Conteúdo */
+    .legal-wrap {
+      max-width: 780px;
+      margin: 48px auto 72px;
+      padding: 0 20px;
+    }
+    .legal-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--sombra);
+      padding: 48px 44px;
+    }
+    @media (max-width: 600px) {
+      .legal-card { padding: 28px 20px; }
+    }
+
+    .legal-titulo {
+      font-family: var(--fonte-titulo);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      color: var(--verde);
+      margin-bottom: 6px;
+    }
+    .legal-subtitulo {
+      font-size: .9rem;
+      color: var(--cinza);
+      margin-bottom: 36px;
+      border-bottom: 2px solid var(--bege2);
+      padding-bottom: 20px;
+    }
+    .legal-subtitulo strong {
+      color: var(--texto);
+    }
+
+    .legal-secao {
+      margin-bottom: 36px;
+    }
+    .legal-secao h2 {
+      font-family: var(--fonte-titulo);
+      font-size: 1.15rem;
+      color: var(--verde);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .legal-secao h2 .num {
+      background: var(--verde);
+      color: var(--dourado);
+      font-family: var(--fonte-corpo);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: .05em;
+      flex-shrink: 0;
+    }
+    .legal-secao p,
+    .legal-secao li {
+      font-size: .97rem;
+      color: var(--texto);
+      line-height: 1.75;
+      margin-bottom: .6rem;
+    }
+    .legal-secao ul {
+      padding-left: 20px;
+      margin-bottom: .6rem;
+    }
+    .legal-secao li {
+      margin-bottom: .4rem;
+    }
+
+    /* Tabela de dados */
+    .legal-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: .93rem;
+    }
+    .legal-table th,
+    .legal-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid var(--bege2);
+      color: var(--texto);
+      line-height: 1.5;
+    }
+    .legal-table th {
+      background: var(--bege);
+      font-family: var(--fonte-corpo);
+      font-weight: 700;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--verde);
+    }
+    .legal-table tr:nth-child(even) td {
+      background: #fafaf8;
+    }
+    @media (max-width: 600px) {
+      .legal-table { font-size: .82rem; }
+      .legal-table th, .legal-table td { padding: 8px 10px; }
+    }
+
+    /* Destaque */
+    .legal-destaque {
+      background: var(--bege);
+      border-left: 3px solid var(--dourado);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: .93rem;
+      color: var(--texto);
+    }
+
+    /* Badge LGPD */
+    .badge-lgpd {
+      display: inline-block;
+      background: var(--verde);
+      color: var(--dourado);
+      font-family: var(--fonte-corpo);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      padding: 3px 9px;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+
+    /* Rodapé */
+    .legal-footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--bege2);
+      font-size: .85rem;
+      color: var(--cinza);
+    }
+    .legal-footer a {
+      color: var(--verde);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="legal-header">
+    <div class="container legal-header__inner">
+      <div class="legal-header__logo">
+        César Augusto
+        <span>Terapeuta Masculino &amp; Psicanalista</span>
+      </div>
+      <a href="index.html" class="btn-voltar">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Voltar à página
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="legal-wrap">
+    <div class="legal-card">
+
+      <h1 class="legal-titulo">Política de Privacidade <span class="badge-lgpd">LGPD</span></h1>
+      <p class="legal-subtitulo">
+        Produto: <strong>Curso Online Reconstrução Masculina</strong> &nbsp;|&nbsp;
+        Última atualização: <strong>13 de março de 2026</strong>
+      </p>
+
+      <!-- INTRODUÇÃO -->
+      <div class="legal-secao">
+        <p>
+          César Augusto, Terapeuta Masculino e Psicanalista,
+          <!-- PREENCHER: substitua o texto entre colchetes pelo seu CPF ou CNPJ -->
+          inscrito sob o [CPF/CNPJ do titular], com sede em São Paulo — SP,
+          e-mail <a href="mailto:contato@cesaraugustopsi.com.br">contato@cesaraugustopsi.com.br</a>
+          (doravante "Controlador"), comprometido com a proteção da privacidade dos seus
+          usuários, apresenta esta Política de Privacidade em conformidade com a
+          <strong>Lei Geral de Proteção de Dados Pessoais — LGPD (Lei n.º 13.709/2018)</strong>
+          e demais legislações aplicáveis.
+        </p>
+        <p>
+          Esta política descreve como coletamos, utilizamos, armazenamos e protegemos os
+          dados pessoais dos visitantes do site <strong>cesaraugustopsi.com.br</strong> e dos
+          Alunos do curso <strong>Reconstrução Masculina</strong>.
+        </p>
+      </div>
+
+      <!-- 1. DADOS COLETADOS -->
+      <div class="legal-secao">
+        <h2><span class="num">01</span> Dados Pessoais Coletados</h2>
+        <p>Coletamos os seguintes dados pessoais, conforme a origem:</p>
+
+        <table class="legal-table">
+          <thead>
+            <tr>
+              <th>Dado</th>
+              <th>Origem</th>
+              <th>Obrigatoriedade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nome completo</td>
+              <td>Formulário de compra (Kiwify)</td>
+              <td>Obrigatório</td>
+            </tr>
+            <tr>
+              <td>Endereço de e-mail</td>
+              <td>Formulário de compra (Kiwify)</td>
+              <td>Obrigatório</td>
+            </tr>
+            <tr>
+              <td>CPF</td>
+              <td>Formulário de compra (Kiwify)</td>
+              <td>Obrigatório</td>
+            </tr>
+            <tr>
+              <td>Dados de pagamento (cartão, PIX)</td>
+              <td>Processamento pela Kiwify</td>
+              <td>Obrigatório</td>
+            </tr>
+            <tr>
+              <td>Endereço IP e dados de navegação</td>
+              <td>Acesso ao site (cookies/pixel)</td>
+              <td>Automático</td>
+            </tr>
+            <tr>
+              <td>Interações com anúncios (Meta)</td>
+              <td>Meta Pixel</td>
+              <td>Mediante consentimento</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Não coletamos dados sensíveis (saúde, orientação sexual, dados biométricos etc.)
+          de forma direta. O Aluno que, voluntariamente, compartilhar informações pessoais
+          em e-mails ou comunicações diretas o faz ciente desse fato.
+        </p>
+      </div>
+
+      <!-- 2. FINALIDADE -->
+      <div class="legal-secao">
+        <h2><span class="num">02</span> Finalidade do Tratamento</h2>
+        <p>Os dados pessoais coletados são utilizados exclusivamente para as seguintes finalidades:</p>
+        <ul>
+          <li><strong>Execução do contrato:</strong> viabilizar o acesso do Aluno ao conteúdo
+          do curso após a confirmação do pagamento.</li>
+          <li><strong>Comunicação:</strong> enviar e-mails transacionais (confirmação de compra,
+          acesso, reembolsos) e, com consentimento, comunicações sobre novos conteúdos e
+          promoções relacionadas ao curso.</li>
+          <li><strong>Atendimento ao cliente:</strong> responder dúvidas, solicitações de
+          suporte e pedidos de reembolso.</li>
+          <li><strong>Cumprimento de obrigações legais:</strong> emissão de documentos
+          fiscais e atendimento a demandas de autoridades competentes.</li>
+          <li><strong>Marketing digital:</strong> criação de públicos personalizados e
+          semelhantes no Meta Ads para exibição de anúncios relevantes, mediante
+          consentimento prévio.</li>
+        </ul>
+      </div>
+
+      <!-- 3. COMPARTILHAMENTO -->
+      <div class="legal-secao">
+        <h2><span class="num">03</span> Compartilhamento de Dados com Terceiros</h2>
+        <div class="legal-destaque">
+          Seus dados pessoais <strong>não são vendidos</strong> a terceiros. O
+          compartilhamento ocorre apenas nas situações descritas abaixo.
+        </div>
+        <ul>
+          <li>
+            <strong>Kiwify Tecnologia Ltda. (operador):</strong> plataforma responsável pelo
+            processamento de pagamentos e pela hospedagem do ambiente de cursos. A Kiwify
+            acessa os dados estritamente necessários para a execução desses serviços e
+            possui sua própria Política de Privacidade disponível em
+            <a href="https://www.kiwify.com.br/privacidade" target="_blank" rel="noopener noreferrer">kiwify.com.br/privacidade</a>.
+          </li>
+          <li>
+            <strong>Meta Platforms Ireland Ltd. (suboperador):</strong> dados de navegação
+            e comportamento no site são compartilhados com o Meta por meio do Meta Pixel,
+            para fins de veiculação de anúncios personalizados no Facebook e Instagram,
+            mediante consentimento do usuário.
+          </li>
+          <li>
+            <strong>Autoridades públicas:</strong> quando exigido por lei, decisão judicial
+            ou requisição de autoridade competente.
+          </li>
+        </ul>
+      </div>
+
+      <!-- 4. META PIXEL -->
+      <div class="legal-secao">
+        <h2><span class="num">04</span> Meta Pixel — Rastreamento para Anúncios</h2>
+        <p>
+          Este site utiliza o <strong>Meta Pixel</strong> (anteriormente Facebook Pixel),
+          ferramenta de rastreamento fornecida pela Meta Platforms, Inc. O Pixel coleta
+          dados sobre as ações realizadas no site (visualização de página, clique em botão,
+          início de checkout etc.) e os transmite ao Meta para as seguintes finalidades:
+        </p>
+        <ul>
+          <li>Mensuração da efetividade de campanhas publicitárias no Facebook e Instagram.</li>
+          <li>Criação de públicos personalizados ("Custom Audiences") para remarketing.</li>
+          <li>Otimização de anúncios com base em conversões reais.</li>
+        </ul>
+        <p>
+          <strong>Base legal:</strong> consentimento (art. 7.º, inciso I, da LGPD). O
+          usuário que não desejar ser rastreado pelo Meta Pixel pode:
+        </p>
+        <ul>
+          <li>Utilizar o recurso "Por que estou vendo este anúncio?" no Facebook/Instagram.</li>
+          <li>Acessar as configurações de privacidade de anúncios em
+          <a href="https://www.facebook.com/ads/preferences" target="_blank" rel="noopener noreferrer">facebook.com/ads/preferences</a>.</li>
+          <li>Instalar a extensão "Facebook Pixel Helper" para controle no navegador.</li>
+        </ul>
+      </div>
+
+      <!-- 5. COOKIES E LOCALSTORAGE -->
+      <div class="legal-secao">
+        <h2><span class="num">05</span> Cookies e localStorage</h2>
+        <p>
+          O site utiliza tecnologias de armazenamento local para melhorar a experiência do
+          usuário. Abaixo, descrição dos recursos utilizados:
+        </p>
+        <table class="legal-table">
+          <thead>
+            <tr>
+              <th>Tecnologia</th>
+              <th>Finalidade</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>localStorage</td>
+              <td>Armazenar o estado do contador regressivo (countdown timer) para manter
+              consistência entre visitas da mesma sessão</td>
+              <td>Funcional — necessário</td>
+            </tr>
+            <tr>
+              <td>Cookies do Meta Pixel</td>
+              <td>Identificar o usuário e registrar eventos de conversão para anúncios</td>
+              <td>Marketing — mediante consentimento</td>
+            </tr>
+            <tr>
+              <td>Cookies da Kiwify</td>
+              <td>Gerenciar o fluxo de checkout e sessão de compra</td>
+              <td>Funcional — necessário</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          O usuário pode gerenciar ou desativar cookies diretamente nas configurações do
+          seu navegador. A desativação de cookies funcionais pode impactar a experiência
+          de navegação e o processo de compra.
+        </p>
+      </div>
+
+      <!-- 6. DIREITOS DO TITULAR -->
+      <div class="legal-secao">
+        <h2><span class="num">06</span> Direitos do Titular dos Dados — LGPD</h2>
+        <p>
+          Nos termos da LGPD, o titular dos dados pessoais possui os seguintes direitos,
+          que podem ser exercidos a qualquer momento:
+        </p>
+        <ul>
+          <li><strong>Confirmação e acesso:</strong> saber se seus dados são tratados e
+          obter uma cópia das informações mantidas.</li>
+          <li><strong>Correção:</strong> solicitar a atualização de dados incompletos,
+          inexatos ou desatualizados.</li>
+          <li><strong>Anonimização, bloqueio ou eliminação:</strong> pedir a eliminação de
+          dados desnecessários ou excessivos, ressalvadas as obrigações legais de retenção.</li>
+          <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado e
+          interoperável.</li>
+          <li><strong>Revogação do consentimento:</strong> retirar o consentimento para
+          tratamentos baseados nessa base legal, como o Meta Pixel e comunicações de
+          marketing, sem prejuízo da licitude dos tratamentos realizados anteriormente.</li>
+          <li><strong>Oposição:</strong> opor-se a tratamentos realizados em desconformidade
+          com a LGPD.</li>
+          <li><strong>Informação sobre compartilhamento:</strong> saber com quais entidades
+          seus dados foram compartilhados.</li>
+        </ul>
+      </div>
+
+      <!-- 7. CONTATO -->
+      <div class="legal-secao">
+        <h2><span class="num">07</span> Contato — Encarregado de Dados (DPO)</h2>
+        <div class="legal-destaque">
+          Para exercer qualquer direito previsto na LGPD, solicitar esclarecimentos ou
+          registrar uma reclamação, entre em contato diretamente com o Controlador:
+          <br><br>
+          <strong>César Augusto</strong><br>
+          E-mail: <a href="mailto:contato@cesaraugustopsi.com.br">contato@cesaraugustopsi.com.br</a><br>
+          Instagram: <a href="https://www.instagram.com/cesaraugustoo_/" target="_blank" rel="noopener noreferrer">@cesaraugustoo_</a><br>
+          Site: <a href="https://cesaraugustopsi.com.br" target="_blank" rel="noopener noreferrer">cesaraugustopsi.com.br</a>
+        </div>
+        <p>
+          O prazo para resposta às solicitações é de até <strong>15 (quinze) dias úteis</strong>
+          a contar do recebimento. Caso não haja resposta satisfatória, o titular poderá
+          apresentar reclamação à <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong>
+          por meio do site
+          <a href="https://www.gov.br/anpd" target="_blank" rel="noopener noreferrer">gov.br/anpd</a>.
+        </p>
+      </div>
+
+      <!-- 8. VIGÊNCIA -->
+      <div class="legal-secao">
+        <h2><span class="num">08</span> Retenção, Segurança e Vigência</h2>
+        <p>
+          Os dados pessoais são armazenados pelo tempo necessário para cumprir as
+          finalidades descritas nesta política ou para o cumprimento de obrigações legais.
+          Após o prazo de acesso ao curso (1 ano), os dados cadastrais podem ser retidos
+          por até <strong>5 anos</strong> para fins de comprovação fiscal e atendimento a
+          eventuais demandas judiciais ou administrativas.
+        </p>
+        <p>
+          Adotamos medidas técnicas e organizacionais adequadas para proteger os dados
+          pessoais contra acessos não autorizados, perdas ou destruição. Para operações
+          financeiras, delegamos a segurança à Kiwify, que utiliza criptografia SSL/TLS
+          e está em conformidade com o padrão PCI-DSS.
+        </p>
+        <p>
+          Esta Política de Privacidade entra em vigor em <strong>13 de março de 2026</strong>.
+          Alterações relevantes serão comunicadas por e-mail aos Alunos cadastrados com
+          antecedência mínima de 15 dias.
+        </p>
+      </div>
+
+      <!-- RODAPÉ DO CARD -->
+      <div class="legal-footer">
+        <p>
+          Dúvidas sobre privacidade? Entre em contato:
+          <a href="mailto:contato@cesaraugustopsi.com.br">contato@cesaraugustopsi.com.br</a>
+        </p>
+        <p style="margin-top:12px;">
+          <a href="index.html">← Voltar à página do curso</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="termos.html">Termos de Uso</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
